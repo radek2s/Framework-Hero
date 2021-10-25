@@ -1,0 +1,183 @@
+<div>
+    <h1>Component data, methods and properties</h1>
+    <p>
+        Components in Angular are TypeScript classes so it has all goodies of that.
+        The application can use primitive types but it can also use dedicated classed 
+        and interfaces that will improve the further scalability. Classes can implement
+        some interfaces and classes can extend other classes. So many known object oriented
+        programming patterns can be applied to Angular project.
+    </p>
+
+    <h2>Component internal data</h2>
+    <p>
+        Internal data of the component must be defined as class property and can be initialized
+        with the constructor. Component class could also defined some methods that could be related
+        to that component behavior or other things. In further reading we will see that we can also 
+        attach the 'service' classes that could attach additional functionality
+        to the component. 
+    </p>
+
+    <p>
+        But starting from the starch we will just create a SingleComponent class with 
+        <code>welcomeMessage</code> property that is a type of <code>string</code> variable. 
+        You can see that in this example we initialize that variable using constructor. 
+    </p>
+    
+    <label>single.component.ts</label>
+    <pre><code [highlight]="code0" [lineNumbers]="true"></code></pre>
+
+    <p>
+        We defined the new property in our SingleComponent class but now we want
+        to use it. So there are two ways how to use it on the HTML template.
+    </p>
+
+    <ul>
+        <li>Text interpolation<br>Embedding the <code>welcomeMessage</code> property into the marked up text.
+        It displays the value of that variable in specific place in the template. It has been presented in the
+        example above where you can see the double curly braces <code>{{ "{{}\}" }}</code> as the interpolation expression.
+        </li>
+        <li>Passing as argument<br>Variable can be passed to the child component as an argument.
+        It is quite different approach so we are not using the double curly braces but properties passing.
+        Don't worry it will be presented in the next section.
+        </li>
+    </ul>
+
+    <p>
+        It is not the only possible way to initialize the component internal data.
+        Sometimes it is better to initialize the data inside <code>onInit()</code> method.
+        That method is one of the Component Lifecycle Hooks methods. Complete tutorial with all
+        lifecycle hooks details is described on the <a href="https://angular.io/guide/lifecycle-hooks">official Angular site</a>.
+        Shortly it is a kind of the execution order of the methods inside the component class that initialize 
+        specific contents.
+    </p>
+
+    <h2>Passing properties</h2>
+    <p>
+        Even the most advanced component sometime requires an additional data from other place. 
+        For example some component should be rendered differently depending on the 
+        page where it is located. So to make it possible we can pass some data to the component
+        using <code>@Input()</code> decorator. We add that before the property that we want to receive
+        form the parent component. (We have to remember about adding the proper import from <code>@angular/core</code>).
+        There is an option to give a name for the property that we want to receive adding a property name as an argument 
+        to the input decorator function like in this example: <code>@Input('propertyName')</code>. But for the sake of simplicity
+        we will continue using the default name of the property to explain exactly what is happening.
+    
+    </p>
+
+    <label>props.component.ts</label>
+    <pre><code [highlight]="code1ts" [lineNumbers]="true"></code></pre>
+
+    <p>
+        The variable name is the property name that has to be passed to the component from parent. To pass a simple string
+        value we just need to define a attribute like it is done in classic HTML tags. Example was presented below where in 
+        <code>parent.component.html</code> we have defined the <code>welcomeMessage</code> attribute with value <code>"Angular Child Component"</code>.
+    </p>
+
+
+    <label>parent.component.html</label>
+    <pre><code [highlight]="code1html" [lineNumbers]="true"></code></pre>
+
+    <h3>
+        Passing Variables
+    </h3>
+    <p>
+        Sometimes we need to pass more complicated data to the component. It could be an array, map or even another TypeScript object. That is also possible using
+        the same approach that we did before but we have to change the way we pass the data in the parent component. If we want to pass an object (in general meaning)
+        we need to use the <code>[...]</code> (square braces) around the property name. This improve the readability of the code and the compiler knows that the value 
+        provided there is a variable and should be somewhere defined. If it is not defined it will throw an error and user will be informed about that.
+    </p>
+
+    <label>parent.component.ts</label>
+    <pre><code [highlight]="code2ts" [lineNumbers]="true"></code></pre>
+
+
+    <label>parent.component.html</label>
+    <pre><code [highlight]="code2html" [lineNumbers]="true"></code></pre>
+
+    <p>
+        In that way we can communicate with the child components. Now this two components share information stored inside <code>framework</code> variable. 
+        There are also some advanced ways to pass data to the child component. Using the getter (<code>@Input() get welcomeMessage(): string "{{'{...}'}}"</code>) 
+        we can intercept the provided data and validate, act or modify it. That could be useful if we are creating a component that will be responsible for 
+        username validation where we want to make sure that the username will not contain any special characters or white spaces. 
+    </p>
+    <p>
+        From parent component there is no possibility to access child properties or methods. It could be done by creating a <b>Local variable</b> template reference for the child element 
+        and when it is done create a reference to it inside the parent component. It could be done by adding a <code>#referenceName</code> attribute to the child component tag. It is the 
+        simplest way to do it but it is not recommended. It has that limitation that the local variable reference must be done in the parent component template only. So the parent 
+        component class still do not have access to the child component. It could be done using <code>@ViewChild()</code> decorator. That operation inject the child component class into the
+        parent and if the variable is defined the parent class will have access to the child component. That is more complex pattern and not commonly used but it is possible.
+    </p>
+
+    <h2>
+        Emmiting Events
+    </h2>
+    <p>
+        Next step is a communication from child to parent. This time the child component will send information
+        to the parent about some event that is just taking place. Using the special <code>@Output()</code> decorator
+        the child component define the custom event that when it take place the parent component can interpret 
+        this action and do something. The child component has to import the <code>EventEmitter</code> and <code>Ouput</code>
+        classes from core Angular library. 
+    </p>
+
+    <p>
+        In the example below there is a EmitComponent class that has defined the increasedEvent variable that 
+        is a kind of EventEmitter class that emits primitive number to parent component when the <code>emit()</code>
+        method is invoked. The <code>@Output()</code> decorator is crucial because if it will be missing the 
+        parent component will not be aware of the event. Emit method is invoked in that example inside 
+        <code>increaseNumber()</code> method body and send an event to parent with latest value of the counter.
+    </p>
+    
+    <label>emit.component.ts</label>
+    <pre><code [highlight]="code3ts" [lineNumbers]="true"></code></pre>
+
+    <p>
+        From the parent point of view there is something similar that was presented with @Input() decorator.
+        When in parent component template the child component is defined it also has a custom attribute
+        that is a name of the event defined inside child class. To differentiate the Input and Output the 
+        authors of the Angular framework adopted a convention where for event the property is in brackets <code>(...)</code>.
+        That makes it easier to find and recognize what is an Input property and  what is the Event handler.
+        As it was mentioned before this convention point that the provided value is an object or in that 
+        case a method inside parent class that receive an <code>$event</code> object as the argument. 
+    </p>
+
+
+    <label>parent.component.html</label>
+    <pre><code [highlight]="code3html" [lineNumbers]="true"></code></pre>
+
+    <label>parent.component.ts</label>
+    <pre><code [highlight]="code3ts2" [lineNumbers]="true"></code></pre>
+
+    <p>
+        In the example presented above the parent component invokes the <code>onIncreased()</code> method 
+        when the child component emits an <code>(increasedEvent)</code> event. Method in parent class 
+        receive an argumnet that is an number from child component.
+    </p>
+
+    <p>
+        That was the simple introduction to the communication between child and parent components. That
+        is not complex because we always know what kind of data we are passing or we receive and how it is used.
+        More advanced scenarios are described on the <a href="https://angular.io/guide/inputs-outputs">offcial Angular documentation.</a>
+    </p>
+
+    <h2>
+        2-Way Data Binding
+    </h2>
+
+    <p>
+        In Angular there is a concept of Two-way data binding that is an another approach to share data
+        in application. While using that approach we can listen for events and update values simultaneously
+        between child and parent components. It is an combination of the Input and Output pattern. It is possible
+        to create it step by step but most of the Angular froms use that approach so it was provided to 
+        Angular FormsModule that gives a <code>[(ngModel)]</code> directive. This two-way data binding 
+        contents the square brackets with parentheses and combine property binding with event binding.
+        Example below shows how to use it with ngModel approach. If you are interested how to create your own
+        binding chect <a href="https://angular.io/guide/two-way-binding">this page</a> from official Angular documentation.
+    </p>
+
+    <label>form.component.html</label>
+    <pre><code [highlight]="code4" [lineNumbers]="true"></code></pre>
+
+    <label>app.module.ts</label>
+    <pre><code [highlight]="code4module" [lineNumbers]="true"></code></pre>
+
+</div>

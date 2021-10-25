@@ -1,0 +1,72 @@
+<div>
+    <h1>Content projection</h1>
+    <p>
+        One of the most powerful features of modern framework is the Content Projection pattern.
+        This approach allows user to build more reusable components and add external content into 
+        the Template. That technique allow us to pass HTML elements, other components and 
+        everything else to the Template. Child component will render that content in a designated
+        place based on the <code>ng-content</code> tag selector. 
+    </p>
+
+    <h2>
+        Single-slot content projection
+    </h2>
+
+    <p>
+        As it was explained before we can use <code>ng-content</code> selector to render some 
+        specific content into the Template. The example below shows how to use that
+        selector to render data from the parent component. The content will be rendered below 
+        header selector and above the footer. Each child component will be rendered in the same way.
+        So that means that all child components will have a title and a footer but their "body" 
+        will be different depending on the data provided by parent.
+    </p>
+    
+    <label>child.component.ts</label>
+    <pre><code [highlight]="code0child" [lineNumbers]="true"></code></pre>
+
+    <label>parent.component.html</label>
+    <pre><code [highlight]="code0parent" [lineNumbers]="true"></code></pre>
+
+    <p>
+        Single slot content projection is very easy to use and it is very powerful tool for developers.
+        This element is a placeholder that does not create a real DOM element but it is a reference
+        where the data should be rendered. That approach has also a downside. It does not have 
+        access to the properties and methods inside the ChildComponent, but in many cases it is
+        not a problem.
+    </p>
+
+    <h2>
+        Multiple-slot content projection
+    </h2>
+
+    <p>
+        What if we want to add data to multiple specific places in our child template? To solve that 
+        issue we can specify a <code>select</code> attribute with specific name to <code>ng-content</code> tag.
+        That determines which slot is going to be used by provided data. It works on CSS selector specification
+        that determines which content is going into the specific slot. The example below shows how to use
+        it.
+    </p>
+
+    <label>child.component.ts</label>
+    <pre><code [highlight]="code1child" [lineNumbers]="true"></code></pre>
+
+    <label>parent.component.html</label>
+    <pre><code [highlight]="code1parent" [lineNumbers]="true"></code></pre>
+
+    <p>
+        That is a simple approach to create a multi-slot content projection. But using <code>ng-content</code>
+        selector the content of the component is always initialized. There is a way to avoid that by using
+        <code>ng-template</code> element that is rendering a data based on the provided condition. 
+    </p>
+
+    <!-- <h2>
+        Conditional content projection
+    </h2>
+    <p>
+        Instead initializing the content every time we can add some of the logic to the template.
+        The tag <code>ng-template</code> allows to render data based on the provided condition 
+        and event more than once. 
+    </p> -->
+
+
+</div>

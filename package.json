@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve::angular": "cd ./angular && ng serve"
+    "serve::angular": "cd ./angular && ng serve",
+    "serve::vue": "cd ./vue-app && npm run serve"
   },
   "author": "",
   "license": "ISC"

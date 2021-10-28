@@ -1,0 +1,26 @@
+<template>
+  <div class="topbar">
+    <h1>Vue.js Page</h1>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "Topbar",
+});
+</script>
+ 
+<style scoped>
+.topbar {
+  width: calc(100vw - 200px);
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 54px;
+  box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+}
+</style>

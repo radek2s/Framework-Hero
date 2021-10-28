@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
+import Project from "../views/Project.vue";
+import Basic from "../views/Basic.vue";
+import Props from "../views/Props.vue";
+import Slots from "../views/Slots.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -7,6 +11,27 @@ const routes: Array<RouteRecordRaw> = [
     name: "Home",
     component: Home,
   },
+  {
+    path: "/project-initialization",
+    name: "ProjectInitialization",
+    component: Project,
+  },
+  {
+    path: "/simple-component",
+    name: "SimpleComponent",
+    component: Basic,
+  },
+  {
+    path: "/props-component",
+    name: "PropsComponent",
+    component: Props,
+  },
+  {
+    path: "/slots-component",
+    name: "SlotsComponent",
+    component: Slots,
+  }
+
 ];
 
 const router = createRouter({

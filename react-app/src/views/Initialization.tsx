@@ -1,7 +1,4 @@
 import * as React from 'react';
-import Highlight from 'react-highlight'
-import { Route } from 'react-router';
-
 
 interface Props {};
 interface State {};

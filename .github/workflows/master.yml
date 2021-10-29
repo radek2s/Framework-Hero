@@ -1,0 +1,97 @@
+name: Deploy latest changes to GitHub Pages
+
+on: 
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  buildA:
+    name: Build Angular
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./angular
+      - name: Build
+        run: npm run build:ci
+        working-directory: ./angular
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_ACCESS }}
+          BRANCH: gh-pages
+          FOLDER: angular/dist/angular
+          TARGET_FOLDER: ./docs/angular
+
+  buildR:
+    name: Build React
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./react-app
+      - name: Build
+        run: npm run build
+        working-directory: ./react-app
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_ACCESS }}
+          BRANCH: gh-pages
+          FOLDER: react-app/build
+          TARGET_FOLDER: ./docs/react
+
+  buildV:
+    name: Build Vue.js
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./vue-app
+      - name: Build
+        run: npm run build:ci
+        working-directory: ./vue-app
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_ACCESS }}
+          BRANCH: gh-pages
+          FOLDER: vue-app/dist
+          TARGET_FOLDER: ./docs/vue

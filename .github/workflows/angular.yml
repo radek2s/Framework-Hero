@@ -32,6 +32,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_ACCESS }}
-          BRANCH: master
+          BRANCH: gh-pages
           FOLDER: angular/dist/angular
-          target-folder: ./docs/angular
+          TARGET_FOLDER: ./docs/angular

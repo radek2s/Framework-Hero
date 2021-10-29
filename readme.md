@@ -28,5 +28,5 @@ This project can be divided into 3 smaller sub-projects that share the same page
 Each of them is written using different framework but using the same language. Because Angular can be used only using TypeScript you will see that Vue.js and React application has been written using that Language to make it more easy to compare. The sub-project structure
 was designed to match as possible to good-practices for each of that framework. 
 
-## Feature
+## Future
 It is an hobby project realized after work in my spare time to help other developers easily jump between that frameworks. Now it has the core functionality and basic knowledge explained but it will be evolving with time.

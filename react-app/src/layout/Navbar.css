@@ -1,0 +1,60 @@
+nav {
+    width: 200px;
+    height: 100vh;
+    float: left;
+    background: rgba(163, 116, 116, .15);
+    background: linear-gradient(90deg, rgba(49,49,49,.65) 10%, rgba(33,33,33,.65) 90%);
+    backdrop-filter: blur(20px);
+    color: white;
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+}
+
+ul > li { 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 15px;
+    border: 1px solid rgba(0,0,0,0);
+    animation-name: fadeOutHover;
+    animation-iteration-count: 1;
+    animation-timing-function: decelerate;
+    animation-duration: 100ms;
+}
+ul > li:hover {
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.15);
+    animation-name: fadeInHover;
+    animation-iteration-count: 1;
+    animation-timing-function: decelerate;
+    animation-duration: 100ms;
+    /* animation-delay: 50ms; */
+}
+
+@keyframes fadeInHover {
+    0% {
+        border: 1px solid rgba(255,255,255,0);
+        background: rgba(0, 0, 0, 0);
+    }
+    100% {
+        border: 1px solid rgba(255,255,255,0.25);
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+@keyframes fadeOutHover {
+    0% {
+        border: 1px solid rgba(255,255,255,0.25);
+        background: rgba(255, 255, 255, 0.15);
+    }
+    100% {
+        border: 1px solid rgba(255,255,255,0);
+        background: rgba(0, 0, 0, 0);
+    }
+}

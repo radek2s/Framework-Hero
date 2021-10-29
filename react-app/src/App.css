@@ -1,0 +1,27 @@
+section {
+  width: 80vw;
+  margin-left: calc(200px + 5vw);
+  background-color: rgb(255 255 255 / 90%);
+  background: linear-gradient(90deg, rgb(247 247 247 / 85%) 10%, rgb(234 234 234 / 95%) 90%);
+  backdrop-filter: blur(20px);
+  min-height: 50vh;
+  color: black;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 30px;
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  section {
+      width: 70vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+      width: 60vw;
+  }
+}

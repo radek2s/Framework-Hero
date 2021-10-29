@@ -1,0 +1,57 @@
+<div>
+    <h1>Angular services</h1>
+    <p>
+        What does service means? Service is a pice of code that is used to share data and functionality 
+        between different parts of an application. It is mostly a TypeScript class with purpouse of its being. 
+        For example we can imagine that we need to fetch data from the remote server and that task
+        can be delegated to a specific service that will be responsible for that. Multiple components 
+        can use the same service and they will share the same methods and data. Components can 
+        use those services by injecting them into their constructor which is named as "dependency injection".
+    </p>
+    <p>
+        Single component can use multiple services. That is the principle that should be followed - to 
+        move the all logic into the services and make them available by this "dependency injection". 
+        This rule helps to avoid the code duplication and to keep the code clean. It increases the
+        modularity of the application and further reusability. There is principle that 
+        component should only contain a logic related to rendering or serving the data to the view.
+        Component should have properties and methods for that logic and this kind of data binding.
+    </p>
+    <p>
+        Service is a kind of class so it also can have properties and methods. What is more it can 
+        also inject other services and depend on them. That is the beauty of Object Oriented Programing.
+        That is very similar to the Java and C# programing where we can also define something like services.
+        For example Java Spring Framework also use services and dependency injection mechanism to provide 
+        data to specific Java classes. So we can use the same principle in Angular.
+    </p>
+
+    <label>picture.service.ts</label>
+    <pre><code [highlight]="code0" [lineNumbers]="true"></code></pre>
+
+    <p>
+        With services there is a term <b>provider</b> that determines what is a scope of the specific
+        service. If some component injects and depends on a service it must be somewhere initialized.
+        If that service is existing the component receives the reference to that instance otherwise
+        the <b>injector</b> is adding that service to its scope using registered provider. There are 
+        three levels of scope:
+    </p>
+
+    <ul>
+        <li><span class="list-title">Root level</span> The service is a single, shared instance that could be available from every
+        component that will inject it</li>
+        <li><span class="list-title">NgModule level</span> Service is available for specific NgModule so the same instance of a service is provided to all components in that module.</li>
+        <li><span class="list-title">Component level</span> In that level you get a new instance of the service with each new instance of that component.</li>
+    </ul>
+
+    <p>
+        That page was based on the <a href="https://angular.io/guide/architecture-services">official Angular documentation</a>. So if you 
+        want to know more about services in Angular you can read that article.
+    </p>
+
+    
+
+
+
+
+
+
+</div>

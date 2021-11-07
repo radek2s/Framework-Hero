@@ -1,0 +1,74 @@
+<div>
+    <h1>Component Inheritance</h1>
+    <p>
+        Components can be extended in multiple ways. Because in Angular each component is a class
+        from Object-Oriented-Programing perspective, one of the first things that comes to mind is
+        approach where each class may be extended to create a new child class. 
+        The same mechanism works here as well. The child class inherits 
+        the properties and methods of the parent class. But that is not the only way how we can 
+        extend a component behavior. Following the rule "Composition over Inheritance" we can
+        using other components as a part of the parent component. What is more we can use 
+        "Slots" and "Props" patterns to create a reusable code or even create a Angular service 
+        that can be used by multiple components in same application. Inheritance approach may add 
+        some complexity to code so think twice before you decide to use this pattern instead the 
+        simpler ones. 
+    </p>
+
+    <p>
+        Sometimes we need to create two or more components which share the same behavior.
+        For example it could be an weather card component that shows the forecast for
+        a specific place. Sometimes we want to present a brief information about the
+        weather and in another place we want to show more detailed information about it.
+        So the data for both components is the same but the representation of the data
+        may vary. In that case we can use Inheritance concept to reduce the amount of code
+        and make the code more reusable.
+    </p>
+
+    <label>weather-base.component.ts</label>
+    <pre><code [highlight]="code0" [lineNumbers]="true"></code></pre>
+
+    <p>
+        At the beginning we have a base component that contain the Weather data. The base 
+        component do not have defined any template. The next step is to create a child component
+        that will inherit the base component.
+    </p>
+
+    <p>
+        (Yeah I know that there should be an logic that will be responsible for fetching the data from the server 
+        but the point is that the base component has some logic that is common for all the child components.)
+    </p>
+
+    <label>weather-summary.component.ts</label>
+    <pre><code [highlight]="code1" [lineNumbers]="true"></code></pre>
+
+    <label>weather-details.component.ts</label>
+    <pre><code [highlight]="code2" [lineNumbers]="true"></code></pre>
+
+
+    <p>
+        Using the <b>extends</b> keyword in child class we can inherit the base component.
+        We have to invoke <code>super()</code> method in the constructor of the child class. That is 
+        required when we are inheriting the base class. The child class will have access to the
+        properties and methods of the base class basing on the access level defined in parent.
+        It works in the same way as inheritance in other Object-Oriented-Languages. But there are 
+        some things that we need to take care of:
+    </p>
+
+    <ul>
+        <li>
+            Life Cycle Hooks are not inherited. 
+        </li>
+        <li>
+            Metadata from Component Decorator will not be inherited. But we can reuse the same HTML or CSS files.
+        </li>
+        <li>
+            <code>@Input</code> and <code>@Output</code> can be inherited into the child component.
+        </li>
+        <li>
+            Dependency Injection is possible but require to provide the reference of the element from 
+            child component to parent that must have this properties defined as public inside constructor.
+        </li>
+
+    </ul>
+
+</div>

@@ -6,6 +6,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BasicComponent } from './pages/component-basic/basic.component';
+import { ExtendComponent } from './pages/component-extend/extend.component';
 import { PropsComponent } from './pages/component-props/props.component';
 import { ServicesComponent } from './pages/component-services/services.component';
 import { SlotsComponent } from './pages/component-slots/slots.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'props-component', component: PropsComponent },
   { path: 'slots-component', component: SlotsComponent },
   { path: 'services-component', component: ServicesComponent },
+  { path: 'extend-component', component: ExtendComponent },
 
 ]
 
@@ -32,6 +34,7 @@ const routes: Routes = [
     PropsComponent,
     SlotsComponent,
     ServicesComponent,
+    ExtendComponent,
   ],
   imports: [
     BrowserModule,

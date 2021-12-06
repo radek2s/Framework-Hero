@@ -93,6 +93,6 @@ jobs:
         with:
           token: ${{ secrets.GH_ACTIONS_ACCESS }}
           branch: gh-pages 
-          folder: vue-app/build
+          folder: vue-app/dist
           target-folder: ./docs/vue
       

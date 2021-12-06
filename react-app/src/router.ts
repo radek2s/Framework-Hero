@@ -4,6 +4,7 @@ import Home from "./views/Home";
 import ReactInit from "./views/Initialization";
 import PropsExample from "./views/Props";
 import SlotsExample from "./views/Slots";
+import Extend from "./views/Extend";
 
 export const routes:IRoute[] = [
     {
@@ -33,7 +34,13 @@ export const routes:IRoute[] = [
         name: "Slots Component",
         component: SlotsExample,
         exact: true,
+    }, {
+        path: "/extend-component",
+        name: "Extend Component",
+        component: Extend,
+        exact: true,
     }
+
 ];
 
 export default routes;

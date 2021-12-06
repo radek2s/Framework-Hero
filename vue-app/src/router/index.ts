@@ -4,6 +4,7 @@ import Project from "../views/Project.vue";
 import Basic from "../views/Basic.vue";
 import Props from "../views/Props.vue";
 import Slots from "../views/Slots.vue";
+import Extend from "../views/Extend.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/slots-component",
     name: "SlotsComponent",
     component: Slots,
+  },
+  {
+    path: "/extend-component",
+    name: "ExtendComponent",
+    component: Extend,
   }
 
 ];

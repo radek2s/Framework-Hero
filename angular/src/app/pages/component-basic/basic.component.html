@@ -10,14 +10,27 @@
     </p>
 
     <p>
+        Components may vary in layout and functionality. There are many "good-practices" how to 
+        project components for your application. One of them is a "Component-Container" pattern also 
+        known as "Smart and Dumb Components" in Angular environment. Concept is simple - "Container"
+        (or a "Smart" component) is responsible for every logic and data flow. "Dumb" component (or "Component" 
+        also called "Presentation Component") is responsible for rendering the data and layout.  
+        That pattern will be explained in further reading. But as you can see the components 
+        can be very simple HTML template but it also can be responsible for very complex logic that 
+        can fetch data from server and process it. But starting from starch let me introduce you into basic Angular component.
+    </p>
+
+    <p>
         To create a component, you need to create a <code>*.component.ts</code> file where that decorator is
         attached to specific <code>*Component</code> class. Code example is provided below as
         <code>single.component.ts</code>
         in section "Single File Component". Each component could have a set of properties and methods like classic
         TypeScript class.
-        Component are strongly encapsulated and without specific properties sharing the data between
+        Component are strongly encapsulated and without specific properties the data sharing between
         components is not possible. In further reading it will be explained how to do that.
     </p>
+
+    
 
     <h2>Single File Component</h2>
     <p>

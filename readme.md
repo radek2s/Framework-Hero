@@ -30,3 +30,7 @@ was designed to match as possible to good-practices for each of that framework.
 
 ## Future
 It is an hobby project realized after work in my spare time to help other developers easily jump between that frameworks. Now it has the core functionality and basic knowledge explained but it will be evolving with time.
+
+## What's new?
+
+- Added "Component Extending" section

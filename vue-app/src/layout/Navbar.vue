@@ -9,6 +9,7 @@
           <li><router-link to="/slots-component">Component Projection</router-link></li>
           <li><router-link to="/extend-component">Extending components</router-link></li>
           <li><router-link to="/services-component">Service</router-link></li>
+          <li><router-link to="/directives-component">Directives</router-link></li>
       </ul>
     </div>
   </nav>

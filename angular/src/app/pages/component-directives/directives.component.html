@@ -1,0 +1,225 @@
+<div>
+    <h1>Angular directives</h1>
+
+    <p>
+        Directives in Angular are a way to extend the functionality of your applicationts by giving
+        them a new syntax. That are classes that add a additional behavior to the HTML elements.
+        Each directive has its own name and the type where it can be used. The basic Angular component
+        is actually a directive so base on that we can say that the directives are the most important
+        part of the Angular framework. I've mentioned that the Angular application is built on the
+        component but I should say that the Angular application in general is built on the directives.
+    </p>
+    <p>
+        In Angular there are three types of directives:
+    </p>
+    <ol>
+        <li>
+            <b>Components</b> - That are just a directives with templates.
+        </li>
+        <li>
+            <b>Attribute directives</b> - That directives manipulate the DOM by changing or listening its behavior and appearance.
+            It may change the behavior of the element, attribute, property, component or another directive.
+        </li>
+        <li>
+            <b>Structural directives</b> - That directives change the DOM layout by adding, hiding or removing the
+            elements from the DOM. They can change the HTML structure of the page.
+        </li>
+    </ol>
+
+    <h2>Angular build-in attribute directives</h2>
+    <p>
+        Using the existing directives is very easy because everything you need it to add 
+        a specific attribute to the HTML element. Many Angular Modules may have their own
+        directives that are built-in to the specific module like <code>router-link</code> from 
+        the RouterModule. But in this example I want to present the most common directives.
+    </p>
+
+    <h3>NgClass</h3>
+
+    <p>
+        The NgClass directive allows you to add and remove CSS classes dynamically to specific HTML element.
+        It takes a list of CSS classes and adds them to the element if the expression evaluates to true,
+        and removes them when the expression evaluates to false. 
+    </p>
+
+    <label>directive.component.html</label>
+    <pre><code [highlight]="code1" [lineNumbers]="true"></code></pre>
+
+    <p>
+        In that case we attached the <code>ngClass</code> attribute directive to the <code>div</code> element.
+        This directive will receive a object with the CSS classes that we want to add or remove depending on the 
+        state of our component. The <code>selected</code> class will be added always because the expression is always true,
+        but the <code>disabled</code> class will be added only if the <code>isAdmin()</code> method returns false.
+        Because we pass the object to the directive we must add the square brackets <code>[]</code> around directive name
+        (it's working in the same way how it was done with Input/Output syntax).
+    </p>
+
+    <p>
+        Because it can handle the object reference from our component we attach to this directive any property that
+        we want. It may be a public property or public method from our component. Each key of the object will be treated 
+        as the CSS class name. We can also combine that directive with simple <code>class</code> attribute.
+        Using this approach we can add static CSS classes to the element and extend it with dynamic classes
+        that will be based on the component state.
+    </p>
+
+    <label>login.component.html</label>
+    <pre><code [highlight]="code2" [lineNumbers]="true"></code></pre>
+
+    <p>
+        In this example we can see that the <code>div</code> element will always have the <code>card</code> and <code>card--title</code> classes.
+        But if the isValid property is false this ngClass directive will add the <code>card--error</code> class to this HTML element.
+        As you can see in this example the argument that we pass to the directive is an string that represents the CSS class name that should be added or removed.
+    </p>
+
+    <h3>NgStyle</h3>
+    <p>
+        The same syntax works for the NgStyle directive. This one is responsible for manipulating the 
+        inline styles based on the provided expression.
+    </p>
+
+    <label>input-label.component.ts</label>
+    <pre><code [highlight]="code3a" [lineNumbers]="true"></code></pre>
+
+    <label>input-label.component.html</label>
+    <pre><code [highlight]="code3b" [lineNumbers]="true"></code></pre>
+
+    <p>
+        In this example depending on the <code>@Input</code> properties 
+        we can change the style of the input label. If we pass the <code>required</code> property
+        the Label text will be changed to bold. In <code>inputStyles</code> class property we manipulate the 
+        CSS selectors and base on the state of the component we can change them to specific value.
+        Easy and understandable. Isn't it?
+    </p>
+
+    <h2>Build-in structural directives</h2>
+
+    <p>
+        Structural directives allows us to change the DOM structure by adding, removing or 
+        manipulating the elements where that directive is attached. The three most popular 
+        structural directives are: <code>NgIf</code>, <code>NgFor</code> and <code>NgSwitch</code>.
+        Each works in a similar way how their names suggest. It is most popular statements like 
+        <code>if</code>, <code>for loop</code>, and <code>switch</code> that are used in the JS code
+        but this time they have this <code>Ng</code> prefix. Because structural directives 
+        can modify DOM nodes, apply only one structural directive per element.
+    </p>
+
+    <h3>NgIf</h3>
+    <p>
+        Conditional rendering. That directive is responsible for creating or removing the other elements
+        from the host element. When the expression is <code>false</code> Angular removes that element 
+        from the DOM and disposes components that are attached to that element which can free up memory 
+        and resources.
+    </p>
+
+    <p>
+        This directive is a nice guard against the <code>null</code> value. For example if we want to 
+        display the <code>name</code> property of the <code>user</code> object we can use the <code>ngIf</code>
+        to check if the <code>user</code> object is not <code>null</code>. In that way we can be sure that 
+        the Angular will not generate an error when we try to access the <code>name</code> property.
+    </p>
+
+    <label>basket.component.html</label>
+    <pre><code [highlight]="code4" [lineNumbers]="true"></code></pre>
+
+    <p>
+        Here we can see that the amount of items in basket is displayed only when there is more than 0 items.
+    </p>
+
+    <h3>NgFor</h3>
+    <p>
+        This is the a directive that is responsible for iterating over the array of objects. It 
+        will present the list of items based on the host HTML block. This host block will be the 
+        definition how Angular should present that list. This directive requires a string
+        instruction that define the single item from the specified array. Like 
+        in this example <code>ngFor="let item of items"</code>. We create a variable <code>item</code>
+        from the <code>items</code> array. 
+    </p>
+
+    <label>orders.component.html</label>
+    <pre><code [highlight]="code5" [lineNumbers]="true"></code></pre>
+
+    <p>
+        In this case we want to present the list of orders and each order will be represented by a <code>div</code> element
+        that innerText will be the name property of the order.
+    </p>
+
+    <p>
+        The <code>ngFor</code> directive context may return the zero-based index of the item in each iteration.
+        So we can get the <code>index</code> of the item variable that we used in the template. 
+        To do that we can add a semicolon after the array name and add the <code>let i=index</code> to get the 
+        index of the item in variable named <code>i</code>.
+    </p>
+
+    <label>orders.component.html</label>
+    <pre><code [highlight]="code5b" [lineNumbers]="true"></code></pre>
+
+    <p>
+        Sometimes we want to render a dynamic list of items that can be changed when 
+        the component receives new data. In this case every change in the data array will cause
+        the whole list to be re-rendered. To prevent this we can use the <code>trackBy</code>
+        property that is responsible for tracking changes in the data array. To do that we have to 
+        create a function in the component definition that will return the value that <code>ngFor</code>
+        should track. 
+    </p>
+
+    <label>orders.component.ts</label>
+    <pre><code [highlight]="code5c" [lineNumbers]="true"></code></pre>
+
+    <label>orders.component.html</label>
+    <pre><code [highlight]="code5d" [lineNumbers]="true"></code></pre>
+
+    <p>
+        To track by the property of the object that we use in our loop we have to defined a 
+        dedicated method in the component class. In this case we have named it <code>trackItems</code>.
+        If we want to track base on the index returned form the directive we can reduce that method to 
+        only one argument. 
+    </p>
+
+    <h3>NgSwitch</h3>
+
+    <p>
+        Like in JavaScript also here in Angular we can use the <code>switch</code> statement that 
+        displays one element from among all defined elements based on the condition. This directive 
+        requires at least two elements host element for the <code>ngSwitch</code> and one or more
+        elements that will be displayed based on the condition.
+    </p>
+
+    <label>shop.component.html</label>
+    <pre><code [highlight]="code6" [lineNumbers]="true"></code></pre>
+
+    <h3>Structural directives shorthand</h3>
+
+    <p>
+        As you noticed the each structural directive was presented in a shorthand version. 
+        This asterisk <code>*</code> symbol is used to indicate that we want to apply the directive
+        which Angular later interprets in longer form. Angular transforms the asterisk into 
+        and <code>ng-template</code> tag that surrounds the host element. So in our case with 
+        basket items in <code ngNonBindable>*ngIf</code> example the longer version of the same directive is:
+    </p>
+
+    <label>basket.component.html</label>
+    <pre><code [highlight]="code4ext" [lineNumbers]="true"></code></pre>
+
+    <p>
+        As we can see it is doing the same thing as the <code>ngIf</code> directive with the 
+        asterisk but it is much longer. Now we can see that the <code>ngIf</code> directive is
+        surrounded by the square brackets <code>[]</code> like it was done with the attribute
+        directives. So now you can see that this is the same mechanism that Angular uses to
+        apply the directive.
+    </p>
+
+    <h2>Custom directives</h2>
+    <p>
+        Of course we can create our own directives. Custom directive can do anything that we want
+        on a host element. To do that we have to create a directive class in our application.
+        The step by step guide is available on the official <a href="https://angular.io/guide/attribute-directives#building-an-attribute-directive">Angular documentation</a>.
+    </p>
+
+    <!-- https://angular.io/guide/built-in-directives -->
+
+
+
+
+    
+
+</div>

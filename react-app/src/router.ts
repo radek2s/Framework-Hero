@@ -5,6 +5,7 @@ import ReactInit from "./views/Initialization";
 import PropsExample from "./views/Props";
 import SlotsExample from "./views/Slots";
 import Extend from "./views/Extend";
+import Directives from "./views/Directives";
 
 export const routes:IRoute[] = [
     {
@@ -38,6 +39,11 @@ export const routes:IRoute[] = [
         path: "/extend-component",
         name: "Extend Component",
         component: Extend,
+        exact: true,
+    }, {
+        path: "/directives-component",
+        name: "Directives Component",
+        component: Directives,
         exact: true,
     }
 

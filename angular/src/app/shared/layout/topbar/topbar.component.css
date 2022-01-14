@@ -9,3 +9,9 @@
     align-items: center;
     backdrop-filter: blur(15px);
 }
+
+@media screen and (max-width: 640px) {
+    .topbar {
+        width: 100%;
+    }
+}

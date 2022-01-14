@@ -5,6 +5,7 @@ import Basic from "../views/Basic.vue";
 import Props from "../views/Props.vue";
 import Slots from "../views/Slots.vue";
 import Extend from "../views/Extend.vue";
+import DirectivesView from "../views/DirectivesView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +37,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/extend-component",
     name: "ExtendComponent",
     component: Extend,
+  },
+  {
+    path: "/directives-component",
+    name: "DirectivesComponent",
+    component: DirectivesView,
   }
 
 ];

@@ -54,3 +54,14 @@ ul > li:hover {
         background: rgba(0, 0, 0, 0);
     }
 }
+
+@media screen and (max-width: 640px) {
+    nav {
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+      top: 54px;
+      max-height: 15vh;
+      overflow: auto;
+    }
+}

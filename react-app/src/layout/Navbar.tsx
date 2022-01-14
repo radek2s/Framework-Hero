@@ -30,6 +30,7 @@ export default class Navbar extends React.Component<Props, State> {
                       <li><Link to="/slots-component">Component Projection</Link></li>
                       <li><Link to="/extend-component">Extending components</Link></li>
                       <li><Link to="/">Service</Link></li>
+                      <li><Link to="/directives-component">Directives</Link></li>
                   </ul>
               </div>
           </nav>

@@ -25,3 +25,11 @@ section {
         width: 60vw;
     }
 }
+
+@media screen and (max-width: 640px) {
+    section {
+      width: calc(100vw - 20px);
+      height: 75vh;
+      margin: calc(54px + 10vh) 10px 10px 10px; 
+    }
+  }

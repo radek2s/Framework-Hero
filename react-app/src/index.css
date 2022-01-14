@@ -19,3 +19,23 @@ ul > li > code {
   background-color: #9696967a;
   padding: 3px;
 }
+
+
+@media screen and (max-width: 640px) {
+  #root nav {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 54px;
+    max-height: 15vh;
+    overflow: auto;
+  }
+  #root .topbar {
+    width: 100%;
+  }
+  #root section {
+    width: calc(100vw - 20px);
+    height: 75vh;
+    margin: calc(54px + 10vh) 10px 10px 10px; 
+  }
+}

@@ -87,4 +87,24 @@ section {
     width: 60vw;
   }
 }
+
+@media screen and (max-width: 640px) {
+  #app nav {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 54px;
+    max-height: 15vh;
+    overflow: auto;
+  }
+  #app .topbar {
+    width: 100%;
+  }
+  #app section {
+    width: calc(100vw - 20px);
+    height: 75vh;
+    margin: calc(54px + 10vh) 10px 10px 10px; 
+  }
+}
+
 </style>

@@ -31,6 +31,7 @@ export default class Navbar extends React.Component<Props, State> {
                       <li><Link to="/extend-component">Extending components</Link></li>
                       <li><Link to="/">Service</Link></li>
                       <li><Link to="/directives-component">Directives</Link></li>
+                      <li><Link to="/store-component">Store concept</Link></li>
                   </ul>
               </div>
           </nav>

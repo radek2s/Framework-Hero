@@ -6,6 +6,7 @@ import PropsExample from "./views/Props";
 import SlotsExample from "./views/Slots";
 import Extend from "./views/Extend";
 import Directives from "./views/Directives";
+import StoreView from "./views/StoreView";
 
 export const routes:IRoute[] = [
     {
@@ -44,6 +45,11 @@ export const routes:IRoute[] = [
         path: "/directives-component",
         name: "Directives Component",
         component: Directives,
+        exact: true,
+    }, {
+        path: "/store-component",
+        name: "Store Component",
+        component: StoreView,
         exact: true,
     }
 

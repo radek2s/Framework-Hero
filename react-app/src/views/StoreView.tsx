@@ -137,19 +137,6 @@ export function BookItem() {
                     But now it is a simple example how to achieve the same functionality in Redux and Vuex.
                 </p>
 
-    
-
-
-
-
-
-
-
-                
-
-                
-
-
 
             </div>
         );

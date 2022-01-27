@@ -13,6 +13,7 @@ import { ServicesComponent } from './pages/component-services/services.component
 import { SlotsComponent } from './pages/component-slots/slots.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProjectComponent } from './pages/project-initialization/project.component';
+import { StoreComponent } from './pages/component-store/store.component';
 import { SharedModule } from './shared';
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'services-component', component: ServicesComponent },
   { path: 'extend-component', component: ExtendComponent },
   { path: 'directives-component', component: DirectivesComponent },
+  { path: 'store-component', component: StoreComponent },
 
 ]
 
@@ -38,6 +40,7 @@ const routes: Routes = [
     ServicesComponent,
     ExtendComponent,
     DirectivesComponent,
+    StoreComponent,
   ],
   imports: [
     BrowserModule,

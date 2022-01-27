@@ -1,0 +1,139 @@
+<div>
+    <h1>Why there is no Store in Angular?</h1>
+    <p>
+        Store concept was introduced by React world to hold the 
+        whole state tree of the application and that is why the 
+        Flux pattern was created. This concept goal is to provide 
+        a unidirectional data flow between components. Action is 
+        invoking a dispatcher method that manage the whole data flow. 
+        All the application state is stored in the store object. All 
+        subscribed views are notified when the store state is updated
+        and they can re-render themselves.
+    </p>
+
+    <p>
+        Creators of this pattern suggest to use this "Flux" pattern
+        only if it is necessary to have it. It is recommended to use
+        when the data model is not hierarchical and receiving the 
+        properties feel extraneous. If we are passing the property 
+        from 5 to 10 levels up that might be a signal that we should 
+        provide that solution. This pattern may be also useful 
+        when you have a data that should be used in multiple places 
+        in the application not only in hierarchical way but also as 
+        a sibling components in that tree. Like the list of the messages
+        that can be used to render a list of folders and total messages counter
+        on the header. Also this pattern will be the best solution
+        when you have a multiple actors that are updating the same data. 
+        It might be a server push message or long polling with <code>setInterval</code>
+        or <code>setTimeout</code> code block.
+    </p>
+
+    <p>
+        In this pattern the subscriber does not know what triggered the 
+        value emission, but we know that we have a new value like in a RxJs Observable. 
+        It can be treated as an application wide singleton service. 
+        Stores are good solution for multiple problems like for example:
+    </p>
+
+    <ul>
+        <li>component interaction problem</li>
+        <li>repetition of Ajax request from client-side</li>
+        <li>keeping the temporary state of the UI (like filling up the form data or storing the search criteria)</li>
+        <li>modification of client-side data by multiple actors</li>
+    </ul>
+
+    <p>
+        In Angular there is a lot of inter-component communication mechanisms that 
+        are available for developers. They do not need external library like Redux
+        to solve the following problems. In Angular there is a mechanism for 
+        creating and disposing automatically the local state. The global Store 
+        cost a lot of memory because it may handle a lot of data. In Angular we can 
+        define a local service that will be injected into the specific components.
+        It will be injected there and not anywhere else. Those local services are visible
+        only for this specific subset of components. 
+    </p>
+
+    <p>
+        About performance in Angular there is a Change Detection mechanism out of the box 
+        that is fast and very intuitive. But if you don't want to use build in tools you 
+        can use the <code>NgRx</code> library that is the Angular implementation of the Flux pattern.
+    </p>
+
+    <h1>NgRx - Flux pattern in Angular</h1>
+
+    <p>
+        This library was inspired by React Redux Store global state management. It provides 
+        a RxJS powered global Store for Angular applications. Key features of this library
+        is providing an "Actions" that describes the unique actions that can be dispatched form
+        components and services. State changes are handled by reducers that update the current 
+        state by the latest triggered action. State is associated with a Store Observable.
+        NgRx provide also a local component state called "NgRx ComponentStore".
+    </p>
+
+    <h2>Store state</h2>
+
+    <p>
+        First step to start using the global Store is to declare the <code>StoreModule</code>
+        in our <code>app.module.ts</code> file. 
+    </p>
+
+    <label>app.module.ts</label>
+    <pre><code [highlight]="code0" [lineNumbers]="true"></code></pre>
+
+    <p>
+        Now we have added the global StoreModule to our AppModule class.
+        But notice that we added a <code>basket:basketReducer</code> object
+        to our module. The next step is to define that reducer in our code.
+    </p>
+
+    <label>basket.reducer.ts</label>
+    <pre><code [highlight]="code1" [lineNumbers]="true"></code></pre>
+
+    <p>
+        This time we have simplified the reducer because I've not divided basket 
+        action to the separate file. This time the basket reducer will use the 
+        <code>addItem</code> action to add a new item to the basket. Method 
+        <code>createAction()</code> is a helper method that creates a new action
+        with description. In <code>createReducer()</code> method we are providing 
+        a initialState object and all the actions that can be dispatched.
+        Finally we are exporting that counterReducer function that will be imported
+        in our <code>app.module.ts</code> file.
+    </p>
+
+    <p>
+        Having this Reducer configured we can use it in our code. To read data from 
+        the Store we just need to provide our Store dependency into the component.
+    </p>
+
+    <label>basket.component.ts</label>
+    <pre><code [highlight]="code2" [lineNumbers]="true"></code></pre>
+
+    <p>
+        This time we need to bind the <code>basket</code> reducer property from the Store
+        to the <code>items$</code> property of the component. Because it will be asynchronously
+        updated we need to mark it as an <code>Observable</code> type. Fetching this data is very 
+        intuitive because we need to indicate the Store state that we want to subscribe to using 
+        <code>select</code> method.
+    </p>
+
+    <p>
+        Invoking the action will be also very easy because we can use our action that we 
+        defined in the <code>basket.reducer.ts</code> file. So we can just call the 
+        <code>this.store.dispatch()</code> method. 
+    </p>
+
+    <p>
+        This is a basic example of NgRx in Angular. If you need to use NgRx in your application
+        read the <a href="https://ngrx.io/">official documentation</a> of this library. It is 
+        the Angular answer to the Flux pattern that is very popular in React and Vue.js frameworks.
+    </p>
+
+
+
+    
+
+
+
+
+
+</div>

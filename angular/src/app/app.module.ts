@@ -9,6 +9,7 @@ import { BasicComponent } from './pages/component-basic/basic.component';
 import { DirectivesComponent } from './pages/component-directives/directives.component';
 import { ExtendComponent } from './pages/component-extend/extend.component';
 import { PropsComponent } from './pages/component-props/props.component';
+import { LifecycleComponent } from './pages/component-lifecycle/lifecycle.component';
 import { ServicesComponent } from './pages/component-services/services.component';
 import { SlotsComponent } from './pages/component-slots/slots.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'project-initialization', component: ProjectComponent },
   { path: 'simple-component', component: BasicComponent },
   { path: 'props-component', component: PropsComponent },
+  { path: 'lifecycle-component', component: LifecycleComponent },
   { path: 'slots-component', component: SlotsComponent },
   { path: 'services-component', component: ServicesComponent },
   { path: 'extend-component', component: ExtendComponent },
@@ -36,6 +38,7 @@ const routes: Routes = [
     HomeComponent,
     BasicComponent,
     PropsComponent,
+    LifecycleComponent,
     SlotsComponent,
     ServicesComponent,
     ExtendComponent,

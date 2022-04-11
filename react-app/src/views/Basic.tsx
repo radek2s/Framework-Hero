@@ -84,6 +84,48 @@ export default class Basic extends React.Component<Props, State> {
 ReactDOM.render(element, document.getElementById('root'));`}
             </Highlight>
 
+            <h2>Different component types</h2>
+
+            <p>
+                In React there are two main types of components. The function and class component. 
+                Recently most developers use functional components to create their applications.
+                Difference between them is mostly related with the syntax. 
+            </p>
+
+            <h3>Class component</h3>
+
+            <p>
+                These components are simple ReactJS classes that extend <code>React.Component</code> class.
+                Developer must remember about adding a <code>render()</code> method to the class that returns 
+                an React.Element instance. They very often implement logic and state. 
+            </p>
+
+            <p>
+                These classes can handle the component state and can implements lifecycle hooks like componentDidMount and so on. 
+                To do that we have to create a constructor to initialize the state and bind methods to the class.
+            </p>
+
+            <h3>Function component</h3>
+
+            <p>
+                Functional components are plain JavaScript functions that accept props and return a React.Element.
+                Since React 16.8, they can handle state update and lifecycle methods. That was the main difference
+                between them and class components. So that was the reason why they were used mostly for presentational 
+                purposes. Not it has been mixed up with class components but this good practice is still used.
+            </p>
+
+            <p>
+                This functions are easer to read and test and often contains less code. They are often known as Stateless components
+                because they should not contain any logic or state but should just present the data and render UI. 
+            </p>
+
+            <p>
+                After that update with React Hooks for functional components more and more applications are build 
+                on the Functional Components. Functional components helps to keep the code clean and readable.
+            </p>
+
+
+
         </div>
     );
   }

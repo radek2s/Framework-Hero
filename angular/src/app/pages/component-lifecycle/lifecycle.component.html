@@ -1,0 +1,120 @@
+<div>
+    <h1>Component Lifecycle hooks</h1>
+    <p>
+        Every component instance instance in Angular has its own lifecycle. The lifecycle is a sequence of events
+        that occur during the life of a component instance. Mostly those hooks are emitted during creation, update
+        or deletion of the component instance. Angular checks to see when data-bound properties change, and updates
+        both the view and the component instance as needed. The lifecycle ends when Angular destroys the component
+        instance and removes template from the DOM. This events are very useful for fetching data on mount or for
+        cleaning up intervals just before unmounting.
+    </p>
+
+    <h2>Component creation (Constructor)</h2>
+
+    <p>
+        Component constructor is not directly a Lifecycle Hook but developer should know that it is called before
+        all the other lifecycle hooks. It is used to inject dependencies and initialize the component. Constructor
+        should do no more than setting up the initial local variables to simple values.
+    </p>
+
+    <label>photo-gallery.component.ts</label>
+    <pre><code [highlight]="code0" [lineNumbers]="true"></code></pre>
+
+    <h2>Input properties initialization or change</h2>
+
+    <p>
+        Then when the constructor has been called Angular is checking the <code>@Input()</code> properties and if
+        any of them has changed, it will call the <code>ngOnChanges()</code> method. Using that hook we can respond
+        for every data-bound input change. This operation may happen frequently so performing complex operations
+        may impact the performance.
+    </p>
+
+    <h2>Mounting</h2>
+
+    <p>
+        Lifecycle hook interfaces are defined in the Angular core library. So we can implement them in our components
+        by importing them from the core library. Each hook method name is prefixed with <code>ng</code>.
+    </p>
+
+    <p>
+        To initialize the component we need to call the <code>ngOnInit()</code> method. It is called only once
+        after the first <code>ngOnChanges()</code> call to perform complex initialization outside of the constructor.
+        This is the best place to fetch data from the server.
+    </p>
+
+    <label>photo-gallery.component.ts</label>
+    <pre><code [highlight]="code1" [lineNumbers]="true"></code></pre>
+
+    <h2>Updating</h2>
+
+    <p>
+        Now we are moving into the most complex part of Angular component lifecycle. <code>ngDoCheck()</code> hook is
+        responsible for detection and reacting every change in the component that Angular can't find out by itself. In
+        this
+        hook we can implement our own change check. While this hook can detect every custom parameter change it is very
+        expensive and it is very important to use it carefully. This hook is called with enormous frequency after
+        <b>every</b>
+        change detection cycle. implementation for this hook must be lightweight to avoid performance issues.
+    </p>
+
+    <label>photo-gallery.component.ts</label>
+    <pre><code [highlight]="code2" [lineNumbers]="true"></code></pre>
+
+    <p>
+        <code>ngDoCheck</code> and <code>ngOnChanges</code> should not be implemented in the same component.
+    </p>
+
+    <h2>Deletion</h2>
+
+    <p>
+        This method will be invoked just before Angular destroys the component. It is called only once per component
+        lifecycle.
+        Use this hook to unsubscribe observables and detach event handlers to avoid memory leaks.
+    </p>
+
+    <label>photo-gallery.component.ts</label>
+    <pre><code [highlight]="code3" [lineNumbers]="true"></code></pre>
+
+    <h2>Hooks for component children</h2>
+
+    <p>
+        Besides the classic parent component lifecycle hooks, Angular also provides hooks for child components in the
+        parent component.
+        This hooks are called only for components that has children content.
+    </p>
+
+    <h3>
+        ngAfterContentInit()
+    </h3>
+
+    <p>
+        This one is invoked after Angular perform content projection into the component view.
+
+    </p>
+
+    <h3>
+        ngAfterContentChecked()
+    </h3>
+
+    <p>
+        Invoked every time there was a change in the content of given component.
+    </p>
+
+    <h3>
+        ngAfterViewInit()
+    </h3>
+
+    <p>
+        Invoked when the component view has been fully initialized with all parent and child content.
+    </p>
+
+    <h3>
+        ngAfterViewChecked()
+    </h3>
+
+    <p>
+        Invoked each time the view of the given component has been checked by the change detection mechanism of Angular.
+    </p>
+
+
+</div>

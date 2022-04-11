@@ -7,6 +7,7 @@ import SlotsExample from "./views/Slots";
 import Extend from "./views/Extend";
 import Directives from "./views/Directives";
 import StoreView from "./views/StoreView";
+import Lifecycle from "./views/Lifecycle";
 
 export const routes:IRoute[] = [
     {
@@ -32,6 +33,11 @@ export const routes:IRoute[] = [
         component: PropsExample,
         exact: true,
     }, {
+        path: '/lifecycle-component',
+        name: "Lifecycle Component",
+        component: Lifecycle,
+        exact: true,
+    },{
         path: '/slots-component',
         name: "Slots Component",
         component: SlotsExample,

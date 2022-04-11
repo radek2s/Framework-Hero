@@ -27,6 +27,7 @@ export default class Navbar extends React.Component<Props, State> {
                       <li><Link to="/project-initialization">Project initialization</Link></li>
                       <li><Link to="/simple-component">Component Example</Link></li>
                       <li><Link to="/props-component">Component Parameters</Link></li>
+                      <li><Link to="/lifecycle-component">Component Lifecycle</Link></li>
                       <li><Link to="/slots-component">Component Projection</Link></li>
                       <li><Link to="/extend-component">Extending components</Link></li>
                       <li><Link to="/">Service</Link></li>

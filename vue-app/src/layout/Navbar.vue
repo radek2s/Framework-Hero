@@ -6,6 +6,7 @@
           <li><router-link to="/project-initialization">Project initialization</router-link></li>
           <li><router-link to="/simple-component">Component Example</router-link></li>
           <li><router-link to="/props-component">Component Parameters</router-link></li>
+          <li><router-link to="/lifecycle-component">Component Lifecycle</router-link></li>
           <li><router-link to="/slots-component">Component Projection</router-link></li>
           <li><router-link to="/extend-component">Extending components</router-link></li>
           <li><router-link to="/services-component">Service</router-link></li>

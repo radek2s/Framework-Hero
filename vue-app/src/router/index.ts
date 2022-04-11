@@ -7,6 +7,7 @@ import Slots from "../views/Slots.vue";
 import Extend from "../views/Extend.vue";
 import DirectivesView from "../views/DirectivesView.vue";
 import StoreView from "../views/StoreView.vue";
+import Lifecycle from "../views/Lifecycle.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -48,6 +49,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/store-component",
     name: "StoreComponent",
     component: StoreView,
+  },
+  {
+    path: "/lifecycle-component",
+    name: "LifecycleComponent",
+    component: Lifecycle,
   }
 
 ];

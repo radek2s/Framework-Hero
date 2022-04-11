@@ -1,6 +1,11 @@
 
 ![example workflow](https://github.com/radek2s/Framework-Hero/actions/workflows/master.yml/badge.svg)
 
+# 💡 Ideas? 
+Share your ideas with us on [GitHub Discussions](https://github.com/radek2s/Framework-Hero/discussions). This is the place where we can discuss about the 
+project and documentation improvements and ideas for the future. Some topic is not included in this project? No problem! Just let me know about it.
+Have you noticed an semantic or language error in the documentation? Help me to fix that!
+
 # Framework Hero
 
 Idea to create this project were born in 2021 when me and my wife were trying to write a simple application in React. For me that was the first time when I get acquainted with this most popular Framework. But it looks very similar to other frameworks taht I used in my short JavaScript career. I've started my Frontend adventure using Angular 4 in 2017. Soon just after graduation in 2020 I was hired to company where used Vue.js framework to create User Interfaces to their Application. So that small incident with React made me aware that all that frameworks are very similar to each other. That is why I want to share with you my experience with all that frontend frameworks.
@@ -33,4 +38,5 @@ It is an hobby project realized after work in my spare time to help other develo
 
 ## What's new?
 
+- Added "Lifecycle hooks" section
 - Added "Component Extending" section

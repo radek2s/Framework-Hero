@@ -73,9 +73,39 @@ const translations = {
         },
         props: {
             intro: {
-                header: "",
-                content: "",
+                header: "Komponent - właściwości, metody i parametry",
+                content: "Komponenty React są obiektami które mogą mieć pewne wewnętrzne właściwości oraz metody. Dodatkowo mogą przyjmować zewnętrzne dane poprzez parametry (eng. 'props'), które wywoływane są podobnie jak atrybuty w elementach HTML.",
             },
+            internal: {
+                header: "Właściwości - stan komponentu",
+                content: "Każdy komponent może mieć swój własny 'stan', czyli pewną kombinację właściwości. Właściwości trzymają wartości zmiennych w pamięci, dzięki czemu możemy renderować ten sam komponent na różny sposób, lub zapewniać bardziej złożoną logikę biznesową.",
+                content2: "Komponenty funkcyjne od wersji 16.8 otrzymały nową metodę 'useState()' pozwalającą na wprowadzenie stanu do tych komponentów. Zmienne w ten sposób zdeklarowane zachowują wszelkie zalety reaktywności komponentu, czyli przypisanie nowej wartości do zmiennej spowoduje przerenderowanie zawartości komponentu, tak żeby bieżąca wartość była widoczna. Poniższy przykład demonstruje jak zdefiniować właściwość 'welcomeMessage' wraz z 'setterem' czyli funkcją pozwalającą na zmianę stanu tej właściwości ('setWelcomeMessage') z wykorzystaniem funkcji 'useState()'. Funkcja ta zwraca tablicę zmiennych [a, b], gdzie 'a' jest reaktywną właściwością, a 'b' jest metodą ustawiającą wartość (wspomniany setter). W dalszej częsci kodu podawana jest wartość początkowa dla tej właściwości jako argument funkcji 'useState()'. Wywołanie zmiennej w kodzie JSX bazuje na wprowadzniu nazwy zmiennej w nawiasy klamrowe '{ }'.  Dzięki temu podczas renderowania zwracany jest nagłówek z treścią 'Hello from State example'. Poniższy przykład przedstawia przykładowy komponent napisany w TypeScript. Wersja JavaScript nie przyjmuje wyrażeń określających typ.",
+                content3: "W przypadku komponentów klasowych definiowanie właściwości stanu jest bardziej złożone. Odbywa się ono w trakcie tworzenia obiektu przy wywołaniu konstruktora. Należy zdefiniować obiekt 'state' poprzez dodanie własnych właściwości. Również w tym miejscu definiowane są wartości początkowe. Istotne w tym przypadku jest przekazywanie parametrów 'propsów' do konstruktora i wywołanie metody nadrzędnej z przekazaniem tego argumentu.",
+                content4: "Poniżej przedstawiony został komponent klasowy napisany w języku TypeScript:"
+            },
+            methods: {
+                header: "Metody",
+                content: "W przypadku komponentów funkcyjnych jak i komponentów klasowych definiowanie metod nie wymaga specjalnej składni. Metody w komponentach klasowych wyglądają tak samo jak to ma miejsce w klasycznych klasach JavaScript (przykładem jest wymagana metoda 'render()'), natomiast w przypadku komponentów funkcyjnych można je zdefiniować jako zwykła funkcja lub przypisać funkcję anonimową do zmiennej."
+            },
+            props: {
+                header: "Parametry",
+                content: "Parametrami ('props') nazywane są zwenętrzne właściwości komponentu. Pozwalają one przekazywać argumenty z rodzica do komponentu docelowego (nazywanego dzieckiem). W przypadku JSX parametry przekazywane są w formacie atrybutów XML podobnie jak w przypadku zwykłych elementów HTML. Argumenty domyślnie są przekazywane jak typ 'string'.",
+                content2: "W przypadku komponentów funkcyjnych wystarczy wskazać parametr na wejściu, aby móc później z niego korzystać w kodzie. Dobrą praktyką jest wykorzystywanie operatora destrukturyzacji (ang. destructuring assignment) w celu wyciągnięcia właściwych nazw parametrów.",
+                content3: "Inaczej wygląda to w przypadku komponentów klasowych. W tym przypadku parametry przekazywane są poprzez konstruktor. Ważne jest, aby wywołać konstruktor metody nadrzędnej z wywołaniem otrzymanych argumentów.",
+                content4: "Opakowując to przy użyciu TypeScript komponent klasowy nie musimy już wywoływać konstruktora w celu zainicjalizowania parametrów. Dzięki czemu kod może wyglądać w następujący sposób:",
+                variables: {
+                    header: "Przekazywanie zmiennych",
+                    content: "Parametry mogą przyjmować dowolny typ. Przekazanie innych typów niż 'string' w JSX wymaga wrzucenia w klamry kod JavaScript reprezentujący dany obiekt, lub zmienną."
+                }
+            },
+            events: {
+                header: "Emitowanie zdarzeń",
+                content: "W bibliotece React nie ma czegoś takiego jak 'emitowanie zdarzeń'. Tutaj stosowane jest podejście z przekazywaniem własnego argumentu do obsługi zdarzeń (eventHandler) do dziecka poprzez parametry. W komponencie dzieka przy definicji parametrów wejściowych należy również podać te które mają być funkcją zwrotną (ang. callback function). To podejście jest znacząco inne niż w przypadku omawianych frameworków takich jak Angular czy Vue. W uproszczeniu to komponent dziecka wywołuje metodę z parametru, która w komponencie rodzica może być obsłużona.",
+                content2: "W momencie kliknięcia na przycisk 'Increase number' (1) przechwytywane jest zdarzenie 'click' poprzez metodę 'onClick', która w momencie wywołania wykonuje wewnętrzną funkcję komponentu 'increaseNumber()'. Wtedy przechwytywane jest zdarzenie (2) mające za zadanie zmianę stanu komponentu i zwiekszenie wartości właściwości 'currentValue' o jeden. Ponieważ przytoczony został przykład z komponentem funkcyjnym należy dodać hook stanu 'useEffect()' nasłuchujący na zmianę wartości właściwości '[currentValue]'. W momencie zmiany wartości tego stanu (3) wywoływana jest funckja zwrotna przekazaną poprzez parametr 'increasedEvent' z bieżącą wartością stanu przekazaną jako argument. Podejście z wykorzystaniem hook'a 'useEffect()' jest specyficzne dla komponentów funkcyjnych. Gdybyśmy chcieli wywołać parametr 'increasedEvent' wewnątrz metody 'increaseNumber' zaraz po linijce 'setCurrentValue(...)' rodzic otrzymałby poprzednią wartość stanu. Jest to spowodowane tym, że wywołanie settera 'setCurrentValue' jest zdarzeniem asynchronicznym.",
+                content3: "W przypadku TypeScript ważne jest odpowiednie zdefiniowanie interfejsu. Parametr 'increasedEvent' jest funkcją anonimową, która przyjmuje argumenty typu 'number'. W powyższym przykładznie uproszczone zostało również wywołanie metody 'increaseNumber' na przycisku. Zabieg ten jest możliwy ponieważ na wywołanie funkcji 'onClick' chcemy również wywołać funckję 'increaseNumber', której parametry wejściowe wzajemnie się pokrywają (lub tak jak w tym przypadku są pomijane).",
+                content4: "Komponent rodzica będzie działać na podobnej zasadzie jak w tym momencie pracowaliśmy podczas obsługi zdarzeń wywołanych przez przycisk. W rodzicu również wystarczy, że obsłużymy wywołanie przychodzące z parametru 'increasedEvent'. Tym razem jednak przechwytujemy 'event' wygenerowany przez komponent dziecka i jego wartość przekazujemy do wewnętrznej funckji 'onIncreased'."
+
+            }
             
             
 

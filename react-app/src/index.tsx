@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'react-highlight/node_modules/highlight.js/styles/atom-one-dark.css'
+
+import './i18n'
 
 ReactDOM.render(
   <React.StrictMode>

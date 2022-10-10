@@ -129,6 +129,12 @@ const translations = {
                 content: "Finally, this method is called just before removing or unmounting a component. Like an initialization method, it is only called once during the lifetime of a component. This hook can be used to clear component data (intervals or timeout functions). The 'componentWillUnmout ()' method is used for this purpose.",
                 content2: "Unfortunately, it is not available for functional components."
             }
+        },
+        service: {
+            provider: {
+                header: "Serwisy i konteksty",
+                content:""
+            }
         }
     }
 }

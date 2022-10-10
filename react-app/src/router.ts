@@ -8,6 +8,7 @@ import Extend from "./views/Extend";
 import Directives from "./views/Directives";
 import StoreView from "./views/StoreView";
 import Lifecycle from "./views/Lifecycle";
+import Service from "./views/Service";
 
 export const routes:IRoute[] = [
     {
@@ -57,6 +58,11 @@ export const routes:IRoute[] = [
         name: "Store Component",
         component: StoreView,
         exact: true,
+    }, {
+        path: "/services",
+        name: "Services",
+        component: Service,
+        exact: true
     }
 
 ];

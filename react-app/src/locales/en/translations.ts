@@ -70,6 +70,65 @@ const translations = {
                 content: "In order to render the component we created, its name should be given in the form of a JSX element tag.",
                 content2: "Since React components are now based on functional components, the rest of this example will use this approach."
             }
+        },
+        props: {
+            intro: {
+                header: "Component - state, methods and properties",
+                content: "React components are objects that can have certain internal state properties and methods. Additionally, they can accept external data via properties (common name: 'props'), which are invoked similarly to attributes in HTML elements.",
+            },
+            internal: {
+                header: "State - component internal properties",
+                content: "Each component can have its own state data properties. State data keeps variable values in memory so we can save component values and provide more complex business logic.",
+                content2: "Functional components since React version 16.8 have a new 'useState ()' method that allows you to enter the state into these components. Variables thus declared retain all the advantages of component reactivity, i.e. assigning a new value to a variable will re-render the component content so that the current value is visible. To do that we are using the 'useState ()' function. The following example demonstrates how to define the 'welcomeMessage' property. Second argument is the 'setter' that is a function that allows you to change the state of this property ('setWelcomeMessage'). This function returns an array of variables [a, b], where 'a' is a reactive property and 'b' is a method that sets the value (the setter mentioned). Later in the code, the initial value for this property is specified as an argument to the 'useState()' function. Invoking a variable in JSX code is based on entering the variable name in curly braces '{}'. As a result, a header with the text 'Hello from State example' is returned during rendering. The following example shows an example component written in TypeScript. The JavaScript version does not accept type expressions.",
+                content3: "For class components, defining state properties is more complex. It takes place while creating the object during calling the constructor. User can define the state object by adding his own properties. Also during the constructor invocation the initial values are defined. The important thing in this case is that we are passing 'props' parameters to the constructor and calling the parent method with this argument.",
+                content4: "The following is presented a class component written in TypeScript:"
+            },
+            methods: {
+                header: "Methods",
+                content: "In the case of functional components as well as class components, defining methods does not require any special syntax. Methods in class components look the same as in classic JavaScript classes (an example is the required 'render ()' method), while for functional components they can be defined as a regular function or assigned an anonymous function to a variable."
+            },
+            props: {
+                header: "Properties",
+                content: "Properties ('props') are called the external properties of a component. They allow arguments to be passed from the parent to the target component (called a child). In the case of JSX, the parameters are passed like the XML attribute very similar to regular HTML elements. By default, the arguments are passed as the type 'string'.",
+                content2: "In the case of functional components, it is enough to provide a argument in the parametrer to be able to use it later in the code. It is good practice to use the destructuring assignment operator to extract the correct parameter names.",
+                content3: "This is not the case for class components. In this case, the parameters are passed through the constructor. It is important to call the constructor of the parent method with the arguments received.",
+                content4: "By wrapping it up with TypeScript, we no longer need to call the constructor to initialize the parameters. So the code can look like this:",
+                variables: {
+                    header: "Passing variables",
+                    content: "Properties can be anything. Passing other types than 'string' in JSX requires throwing the JavaScript code representing the object or variable into the braces."
+                }
+            },
+            events: {
+                header: "Event emitting",
+                content: "There is no such thing as 'emitting events' in the React library. Here, the approach is to pass your own argument to handle events (eventHandler) to the child through parameters. When defining the input parameters, in the child component, you should also specify those that are going to be a callback functions. This approach is significantly different than in the case of discussed frameworks such as Angular or Vue. In simple terms, it is the child component that calls the method from the parameter that can be handled in the parent component.",
+                content2: "When clicking on the 'Increase number' button (1), the 'click' event is caught by the 'onClick' method, which executes the internal function of the 'increaseNumber ()' component at the time of calling. Then the event (2) is caught, which is to change the state of the component and increase the value of the 'currentValue' property by one. As an example with a function component is given, you should add a 'useEffect ()' state hook that listens for a change in the value of the '[currentValue]' property. When the value of this state is changed (3), the return function passed through the 'increasedEvent' parameter is called with the current state value passed as an argument. The 'useEffect ()' hook approach is specific to function components. If we wanted to call the 'increasedEvent' parameter inside the 'increaseNumber' method right after the 'setCurrentValue (...)' line, the parent would get the previous state value. This is because calling setter 'setCurrentValue' is an asynchronous event.",
+                content3: "In the case of TypeScript, it is important to properly define the interface. The 'increasedEvent' parameter is an anonymous function that takes arguments of the type 'number'. In the above example, calling the 'increaseNumber' method on the button has also been simplified. This procedure is possible because when calling the 'onClick' function we also want to call the 'increaseNumber' function, the input parameters of which overlap (or, as in this case, they are omitted).",
+                content4: "The parent component will work in a similar way as we worked at this point in handling button events. In the parent, it is also enough to handle the call coming from the 'increasedEvent' parameter. This time, however, we capture the 'event' generated by the child's component and pass its value to the internal 'onIncreased' function."
+            }
+        },
+        lifecycle: {
+            hooks: {
+                header: "Component lifecycle hooks",
+                content: "Component lifecycle hooks are interfaces that allow you to write your own functions that will be called at a certain point in the life of a component. Most often, events are emitted while creating, modifying, or just before destroying a component. With React 16.8, hooks have been added to functional components. Previously, debiting them was possible only by using class components."
+            },
+            mount: {
+                header: "Creation",
+                content: "This hook only fires once during component initialization. The difference between this hook and the component initialization process call in the constructor is significant because the hook function is called after the component is rendered. So from the level of this function we are able to operate on the elements of the DOM tree. Most often, however, this hook is useful for retrieving initial data from external sources and writing it to state data properties.",
+                content2: "Function components use the 'useEffect (fn, args)' method that takes two arguments. The first is the callback function (fn), inside which we define what is to be performed. The second argument (args) is to listen for this component's state change. An empty array ('[]') is given when initializing. Thanks to this, we are not listening for any property, but we will trigger this hook once.",
+                content3: "Class components have a simpler syntax because you just need to override the 'componentDidMount ()' function:"
+            },
+            update: {
+                header: "Update",
+                content: "The update hook is triggered each time the component status is updated. Too many updates can cause performance issues. Therefore, it is very important to use it carefully. As in the previous case in the function component, we call the hook function 'useEffect ()'. This time the table with the variable to be monitored is given as the second argument.",
+                content2: "In class components, you must define a method named 'componentDidUpdate'. This method receives two parameters: the previous properties and the previous state data properties. So we can check if a specific property or state value has changed and react to that event. For example, we can retrieve a new photo list every time the GalleryID property changes.",
+                content3: "As you can see, the useEffect method is simpler and makes the code more readable. However, it has a significant drawback. Using it, we are not able to access the previous property or state values."
+
+            },
+            delete: {
+                header: "Deletion",
+                content: "Finally, this method is called just before removing or unmounting a component. Like an initialization method, it is only called once during the lifetime of a component. This hook can be used to clear component data (intervals or timeout functions). The 'componentWillUnmout ()' method is used for this purpose.",
+                content2: "Unfortunately, it is not available for functional components."
+            }
         }
     }
 }

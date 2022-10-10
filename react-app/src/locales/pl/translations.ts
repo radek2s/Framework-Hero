@@ -56,7 +56,7 @@ const translations = {
                 },
                 functionComponent: {
                     header: "Komponenty funkcyjne",
-                    content: "Są to zwykłe funkcje JavaScript, które zwracają React.Element i mogą przyjmować różne właściwości. Od wersji 16.8 biblioteki React te komponenty mogą obsługiwać metody aktualizacji stanu i cyklu życia. Wcześniej służyły one tylko i wyłącznie do celów prezentacyjnych. Obecnie są podstawowymi elementami z których buduje się aplikacje. Są one łatwiejsze do odczytania czy testowania i często zawierają mniej kodu.",
+                    content: "Framework React pozwala na definiowanie komponentów za pomocą funkcji. Na dobrą sprawę są to zwykłe funkcje JavaScript, które zwracają React.Element i mogą przyjmować różne właściwości. Od wersji 16.8 biblioteki React te komponenty mogą obsługiwać metody aktualizacji stanu i cyklu życia. Wcześniej służyły one tylko i wyłącznie do celów prezentacyjnych. Obecnie są podstawowymi elementami z których buduje się aplikacje. Są one łatwiejsze do odczytania czy testowania i często zawierają mniej kodu.",
                     content2: "Taki sam komponent można zapisac 'czyściej' stosując składnę ECMA Script 6 (ES6), wykorzystując funkcję anonimową przypisaną do zmiennej.",
                     content3: "Funkcjonalnie powyższy komponent działa tak samo jak komponent klasowy. Najwiekszą różnicą jest uproszczona składnia i pozbycie się wielu niepotrzebnych słów kluczowych takich jak 'this' czy 'props' dzięki czemu kod dużego komponentu jest znacznie bardziej czytelny.",
                     ts: {
@@ -77,8 +77,8 @@ const translations = {
                 content: "Komponenty React są obiektami które mogą mieć pewne wewnętrzne właściwości oraz metody. Dodatkowo mogą przyjmować zewnętrzne dane poprzez parametry (eng. 'props'), które wywoływane są podobnie jak atrybuty w elementach HTML.",
             },
             internal: {
-                header: "Właściwości - stan komponentu",
-                content: "Każdy komponent może mieć swój własny 'stan', czyli pewną kombinację właściwości. Właściwości trzymają wartości zmiennych w pamięci, dzięki czemu możemy renderować ten sam komponent na różny sposób, lub zapewniać bardziej złożoną logikę biznesową.",
+                header: "Właściwości - dane stanu komponentu",
+                content: "Każdy komponent może mieć swoje własne właściwości danych stanu. Dane stanu trzymają wartości zmiennych w pamięci, dzięki czemu możemy zapisywać wartości  komponentu i zapewniać bardziej złożoną logikę biznesową.",
                 content2: "Komponenty funkcyjne od wersji 16.8 otrzymały nową metodę 'useState()' pozwalającą na wprowadzenie stanu do tych komponentów. Zmienne w ten sposób zdeklarowane zachowują wszelkie zalety reaktywności komponentu, czyli przypisanie nowej wartości do zmiennej spowoduje przerenderowanie zawartości komponentu, tak żeby bieżąca wartość była widoczna. Poniższy przykład demonstruje jak zdefiniować właściwość 'welcomeMessage' wraz z 'setterem' czyli funkcją pozwalającą na zmianę stanu tej właściwości ('setWelcomeMessage') z wykorzystaniem funkcji 'useState()'. Funkcja ta zwraca tablicę zmiennych [a, b], gdzie 'a' jest reaktywną właściwością, a 'b' jest metodą ustawiającą wartość (wspomniany setter). W dalszej częsci kodu podawana jest wartość początkowa dla tej właściwości jako argument funkcji 'useState()'. Wywołanie zmiennej w kodzie JSX bazuje na wprowadzniu nazwy zmiennej w nawiasy klamrowe '{ }'.  Dzięki temu podczas renderowania zwracany jest nagłówek z treścią 'Hello from State example'. Poniższy przykład przedstawia przykładowy komponent napisany w TypeScript. Wersja JavaScript nie przyjmuje wyrażeń określających typ.",
                 content3: "W przypadku komponentów klasowych definiowanie właściwości stanu jest bardziej złożone. Odbywa się ono w trakcie tworzenia obiektu przy wywołaniu konstruktora. Należy zdefiniować obiekt 'state' poprzez dodanie własnych właściwości. Również w tym miejscu definiowane są wartości początkowe. Istotne w tym przypadku jest przekazywanie parametrów 'propsów' do konstruktora i wywołanie metody nadrzędnej z przekazaniem tego argumentu.",
                 content4: "Poniżej przedstawiony został komponent klasowy napisany w języku TypeScript:"
@@ -101,7 +101,7 @@ const translations = {
             events: {
                 header: "Emitowanie zdarzeń",
                 content: "W bibliotece React nie ma czegoś takiego jak 'emitowanie zdarzeń'. Tutaj stosowane jest podejście z przekazywaniem własnego argumentu do obsługi zdarzeń (eventHandler) do dziecka poprzez parametry. W komponencie dzieka przy definicji parametrów wejściowych należy również podać te które mają być funkcją zwrotną (ang. callback function). To podejście jest znacząco inne niż w przypadku omawianych frameworków takich jak Angular czy Vue. W uproszczeniu to komponent dziecka wywołuje metodę z parametru, która w komponencie rodzica może być obsłużona.",
-                content2: "W momencie kliknięcia na przycisk 'Increase number' (1) przechwytywane jest zdarzenie 'click' poprzez metodę 'onClick', która w momencie wywołania wykonuje wewnętrzną funkcję komponentu 'increaseNumber()'. Wtedy przechwytywane jest zdarzenie (2) mające za zadanie zmianę stanu komponentu i zwiekszenie wartości właściwości 'currentValue' o jeden. Ponieważ przytoczony został przykład z komponentem funkcyjnym należy dodać hook stanu 'useEffect()' nasłuchujący na zmianę wartości właściwości '[currentValue]'. W momencie zmiany wartości tego stanu (3) wywoływana jest funckja zwrotna przekazaną poprzez parametr 'increasedEvent' z bieżącą wartością stanu przekazaną jako argument. Podejście z wykorzystaniem hook'a 'useEffect()' jest specyficzne dla komponentów funkcyjnych. Gdybyśmy chcieli wywołać parametr 'increasedEvent' wewnątrz metody 'increaseNumber' zaraz po linijce 'setCurrentValue(...)' rodzic otrzymałby poprzednią wartość stanu. Jest to spowodowane tym, że wywołanie settera 'setCurrentValue' jest zdarzeniem asynchronicznym.",
+                content2: "W momencie kliknięcia na przycisk 'Increase number' (1) przechwytywane jest zdarzenie 'click' poprzez metodę 'onClick', która w momencie wywołania wykonuje wewnętrzną funkcję komponentu 'increaseNumber()'. Wtedy przechwytywane jest zdarzenie (2) mające za zadanie zmianę stanu komponentu i zwiekszenie wartości właściwości 'currentValue' o jeden. Ponieważ przytoczony został przykład z komponentem funkcyjnym należy dodać zaczep (ang. hook) stanu 'useEffect()' nasłuchujący na zmianę wartości właściwości '[currentValue]'. W momencie zmiany wartości tego stanu (3) wywoływana jest funckja zwrotna przekazaną poprzez parametr 'increasedEvent' z bieżącą wartością stanu przekazaną jako argument. Podejście z wykorzystaniem zaczepu 'useEffect()' jest specyficzne dla komponentów funkcyjnych. Gdybyśmy chcieli wywołać parametr 'increasedEvent' wewnątrz metody 'increaseNumber' zaraz po linijce 'setCurrentValue(...)' rodzic otrzymałby poprzednią wartość stanu. Jest to spowodowane tym, że wywołanie settera 'setCurrentValue' jest zdarzeniem asynchronicznym.",
                 content3: "W przypadku TypeScript ważne jest odpowiednie zdefiniowanie interfejsu. Parametr 'increasedEvent' jest funkcją anonimową, która przyjmuje argumenty typu 'number'. W powyższym przykładznie uproszczone zostało również wywołanie metody 'increaseNumber' na przycisku. Zabieg ten jest możliwy ponieważ na wywołanie funkcji 'onClick' chcemy również wywołać funckję 'increaseNumber', której parametry wejściowe wzajemnie się pokrywają (lub tak jak w tym przypadku są pomijane).",
                 content4: "Komponent rodzica będzie działać na podobnej zasadzie jak w tym momencie pracowaliśmy podczas obsługi zdarzeń wywołanych przez przycisk. W rodzicu również wystarczy, że obsłużymy wywołanie przychodzące z parametru 'increasedEvent'. Tym razem jednak przechwytujemy 'event' wygenerowany przez komponent dziecka i jego wartość przekazujemy do wewnętrznej funckji 'onIncreased'."
 
@@ -109,6 +109,30 @@ const translations = {
             
             
 
+        },
+        lifecycle: {
+            hooks: {
+                header: "Cykl życia komponentu - zaczepy",
+                content: "Zaczepy cyklu życia komponentów (ang. component lifecycle hooks) to interfejsy pozwalające na napisanie swoich własnych funkcji które wywołają się w określonym momencie życia komponentu. Najczęściej zdarzenia emitowane są podczas tworzenia, modyfikacji, albo tuż przed zniszczeniem komponetu. Wraz z Reactem w wersji 16.8 dodane zostałe zaczepy do komponentów funkcyjnych. Wcześniej ich obłużenie było możliwe jedynie wykorzystując komponenty klasowe."
+            },
+            mount: {
+                header: "Tworzenie",
+                content: "Ten zaczep uruchamia się tylko raz podczas inicjalizacji komponentów. Różnica pomiędzy tym zaczepem a wywołaniem procesu inicjalizacji komponentu w konstruktorze jest znacząca, ponieważ funkcja zaczepu wywoływana jest po wyrenderowaniu komponentu. Czyli z poziomu tej funkcji jesteśmy w stanie operować na elementach drzewka DOM. Najczęściej jednak ten zaczep jest przydatny do pobierania początkowych danych z zewnętrznych źródeł i zapisywania ich do właściwości danych stanu.",
+                content2: "W komponentach funkcyjnych stosuje się metodę 'useEffect(fn, args)', która przyjmuje dwa argumenty. Pierwszym z nich jest funkcja sprzężenia zwrotnego (fn), wewnątrz której definiujemy co ma się wykonać. Drugi argument (args) określa nasłuchiwanie na zmianę stanu tego komponentu. W przypadku inicjalizacji podawana jest pusta tablica ('[]'). Dzięki temu nie nasłuchujemy na żadnej właściwości, ale i tak raz wywołamy ten zaczep.",
+                content3: "Komponenty klasowe mają prostszą składnię ponieważ wystarczy przeciążyć funkcję 'componentDidMount()':"
+            },
+            update: {
+                header: "Aktualizacja",
+                content: "Zaczep aktualizacji wywoływany jest każdorazowo przy każdej aktualizacji stanu komponentu. Zbyt wiele aktualizacji może powodować problemy z wydajnością. Dlatego bardzo ważne jest, aby używać go ostrożnie. Tak jak w poprzednim przypadku w komponencie funkcyjnym, wywołujemy funkcję zaczepu 'useEffect()'. Tym razem jako drugi argument podawana jest tablica ze zmienną, która ma być obserwowana.",
+                content2: "W komponentach klasowych należy zdefiniować metodę o nazwie 'componentDidUpdate'. Metoda ta otrzymuje dwa parametry: poprzednie właściwości i poprzednie właściwości danych stanu. Możemy więc sprawdzić, czy konkretna wartość właściwości lub stanu uległa zmianie i zareagować na to zdarzenie. Na przykład możemy pobrać nową listę zdjęć za każdym razem, gdy zmieni się właściwość GalleryID.",
+                content3: "Jak widać metoda useEffect jest prostsza i czyni kod bardziej czytelnym. Ma jednak znaczącą wadę. Używając jej nie jesteśmy w stanie uzyskać dostępu do poprzednich wartości właściwości czy stanu."
+
+            },
+            delete: {
+                header: "Usuwanie",
+                content: "Na koniec została metoda wywoływana tuż przed usunięciem lub odmontowaniem komponentu. Tak jak metoda inicjalizująca jest ona wywoływana tylko raz w trakcie życia komponentu. Ten zaczep można wykorzystać w celu wyczyszczenia danych komponentu (interwałów, czy funkcji timeout). W tym celu wykorzystywana jest metoda 'componentWillUnmout()'",
+                content2: "Niestety nie jest ona dostępna dla komponentów funkcyjnych."
+            }
         }
     }
 }

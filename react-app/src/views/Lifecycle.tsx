@@ -1,44 +1,20 @@
+import React from 'react';
 import Highlight from "react-highlight";
+import { useTranslation } from 'react-i18next'
 
 const Lifecycle: React.FC = () => {
+    const { t } = useTranslation()
     return (
         <div>
-            <h1>Components Lifecycle hooks</h1>
+            <h1>{t('page.lifecycle.hooks.header')}</h1>
 
-            <p>
-                Hook is a common name for Component Lifecycle Event that is emitted
-                during creation, update or deletion of specific component. They are very useful
-                for fetching data on mount or for cleaning up intervals just before unmounting.
-                In React 16.8 added support for Create and Update hook in Functional Components.
-                Before that version developers must use Class Components to implement them.
-            </p>
+            <p>{t('page.lifecycle.hooks.content')}</p>
 
-            <h2>Mounting</h2>
+            <h2>{t('page.lifecycle.mount.header')}</h2>
 
-            <p>
-                This lifecycle method runs only once when the component is mounted and rendered
-                to the DOM. This hook can be useful for fetching initial data or for setting up.
-            </p>
+            <p>{t('page.lifecycle.mount.content')}</p>
 
-            <Highlight className="javascript">
-                {`// Class Component Example
-class PhotoGallery extends React.Component {
-    ...
-
-    componentDidMount() {
-        ... 
-        this.setState({photos: receivedPhotos});
-    }
-
-    ...
-}`}
-            </Highlight>
-
-            <p>
-                In class component this is quite simple because we just need to write a new
-                function called <code>componentDidMount</code> and React just know that
-                this method should be called right after mounted.
-            </p>
+            <p>{t('page.lifecycle.mount.content2')}</p>
 
             <Highlight className="javascript">
                 {`// Function Component Example
@@ -54,44 +30,27 @@ const PhotoGallery = () => {
 }`}
             </Highlight>
 
-            <p>
-                On the other hand in functional component we have to use <code>useEffect</code> method.
-                But that might be a little bit tricky because we have to pass an empty array as a second argument.
-                The first one is a callback function that will be called after the component is mounted.
-                And the second parameter is an array of variables that should be watched for changes.
-                So if we pass an empty array, the callback function will be called only once when the component is mounted.
-            </p>
+            <p>{t('page.lifecycle.mount.content3')}</p>
 
-            <h2>Updating</h2>
-
-            <p>
-                Update hook is called just after any update inside the component. Too much updates
-                can cause the performance issues. So it is very important to use it carefully.
-            </p>
+            
 
             <Highlight className="javascript">
                 {`// Class Component Example
 class PhotoGallery extends React.Component {
     ...
 
-    componentDidUpdate(prevProps, prevState) {
-        // This part is called every time anything in the component is updated
+    componentDidMount() {
         ... 
-        if(this.props.galleryId !== prevProps.galleryId) {
-            // This part is called only when the galleryId is changed
-        }
+        this.setState({photos: receivedPhotos});
     }
 
     ...
 }`}
             </Highlight>
 
-            <p>
-                Class components has just one method called <code>componentDidUpdate</code> that is called
-                after the component is updated. The method receives two parameters: previous props and previous state.
-                So we can check if the specific property or state value has changed and react to that event. For example
-                we can fetch a new photo list every time the GalleryID property has changed.
-            </p>
+            <h2>{t('page.lifecycle.update.header')}</h2>
+
+            <p>{t('page.lifecycle.update.content')}</p>
 
             <Highlight className="javascript">
                 {`// Function Component Example
@@ -110,22 +69,30 @@ const PhotoGallery = ({galleryId}) => {
 }`}
             </Highlight>
 
-            <p>
-                Function components require an <code>useEffect</code> method from "React". It is the
-                same method that we used to implement a "Mounted" hook in a functional component.
-                This time the first example present a situation when we want take action every time
-                anything in the component is updated. The second example present how to do something
-                only when the specific property has changed. <br />
-                As we can see this <code>useEffect</code> method is more simple and make code more readable.
-                But it has a drawback. We can not access to the previous props or state value.
-            </p>
+            <p>{t('page.lifecycle.update.content2')}</p>
 
-            <h2>Deletion</h2>
+            <Highlight className="javascript">
+                {`// Class Component Example
+class PhotoGallery extends React.Component {
+    ...
 
-            <p>
-                Last but not least, the deletion lifecycle method. This method is called just before
-                component removal or unmounting. It is called only once per component lifecycle.
-            </p>
+    componentDidUpdate(prevProps, prevState) {
+        // This part is called every time anything in the component is updated
+        ... 
+        if(this.props.galleryId !== prevProps.galleryId) {
+            // This part is called only when the galleryId is changed
+        }
+    }
+
+    ...
+}`}
+            </Highlight>
+
+            <p>{t('page.lifecycle.update.content3')}</p>
+
+            <h2>{t('page.lifecycle.delete.header')}</h2>
+
+            <p>{t('page.lifecycle.delete.content')}</p>
 
             <Highlight className="javascript">
                 {`// Class Component Example
@@ -141,12 +108,7 @@ class PhotoGallery extends React.Component {
 }`}
             </Highlight>
 
-            <p>
-                <code>componentWillUnmount</code> method is responsible for cleaning up the component just before 
-                it will be deleted. This time the React developer team do not provided any additional method to handle
-                that hook inside Functional Components. 
-            </p>
-
+            <p>{t('page.lifecycle.delete.content2')}</p>
 
         </div>
     )

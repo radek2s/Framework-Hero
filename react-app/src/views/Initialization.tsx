@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Highlight from 'react-highlight';
-import { Trans } from 'react-i18next'
 import { withTranslation, WithTranslation } from 'react-i18next'
 
 
@@ -17,10 +16,6 @@ class ReactInit extends React.Component<Props & WithTranslation, State> {
 
             <p>
                 {t("page.init.project.content")}
-                {/* To start working with React we can just add the core library to our page.
-                But for more complex projects we need to use a specific tool. The easiest
-                to start with is "<a href="https://github.com/facebook/create-react-app">Create React App</a>" tool
-                that helps us to create a new React project. */}
             </p>
 
             <h2>{t("page.init.cra.header")}</h2>
@@ -40,7 +35,7 @@ class ReactInit extends React.Component<Props & WithTranslation, State> {
                 <li>{t("page.init.cra.section.root")}</li>
             </ul>
 
-            <img src='images/view/init_01.png'/>
+            <img src='images/view/init_01.png' alt='JavaScript project'/>
 
             <p>{t("page.init.cra.content3")}</p>
 
@@ -58,7 +53,7 @@ class ReactInit extends React.Component<Props & WithTranslation, State> {
 
             <p>{t("page.init.craTs.content4")}</p>
 
-            <img src='images/view/init_02.png'/>
+            <img src='images/view/init_02.png' alt='TypeScript project'/>
 
             <h2>{t("page.init.run.header")}</h2>
 

@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 //   styleUrls: ['./home.component.css']
 })
 export class BasicComponent {
-    @Input() framework: String;
+    @Input() framework: String = "";
     welcomeMessage: string = 'Hello from ';
 
     code1 = ` import { Component } from '@angular/core';

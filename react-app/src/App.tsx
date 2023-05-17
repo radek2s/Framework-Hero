@@ -3,19 +3,15 @@ import './App.css';
 import Navbar from './layout/Navbar';
 import Topbar from './layout/Topbar';
 import routes from './router';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  RouteComponentProps,
-} from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
 
-function App() {
+
+export const App:React.FC = () => {
+
   return (
     <div>
-      <Router>
+      
         <Navbar></Navbar>
         <header>
           <Topbar></Topbar>
@@ -23,23 +19,30 @@ function App() {
 
         <main>
           <section>
+            <Outlet/>
+            {/* <Outlet/> */}
+            
+            {/* <HashRouter>
+              <Routes>
+                
+              </Routes>
+            </HashRouter>
             <Switch>
               {routes.map((route, index) => (
                 <Route
                   key={index}
                   path={route.path}
-                  exact={route.exact}
-                  render={(props: RouteComponentProps<any>) => (
+                  ></Route>
+                  ={(props: RouteComponentProps<any>) => (
                     <route.component {...props} {...route.props} />
                   )}
                 />
               ))}
-            </Switch>
+            </Switch> */}
           </section>
         </main>
 
         <footer></footer>
-      </Router>
     </div>
   );
 }

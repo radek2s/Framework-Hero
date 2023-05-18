@@ -113,7 +113,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import hljsVuePlugin from "@highlightjs/vue-plugin";
 
 interface State {
   code0: string;
@@ -129,9 +128,6 @@ export default defineComponent({
     framework: String,
   },
 
-  components: {
-    highlightjs: hljsVuePlugin.component,
-  },
 
   data: (): State => {
     return {

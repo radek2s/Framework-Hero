@@ -181,14 +181,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import hljsVuePlugin from "@highlightjs/vue-plugin";
 
 export default defineComponent({
   name: "DirectivesView",
-
-  components: {
-    highlightjs: hljsVuePlugin.component,
-  },
 
   data() {
     return {

@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Navbar from './layout/Navbar';
 import Topbar from './layout/Topbar';
-import routes from './router';
 import { Outlet } from 'react-router-dom';
 
 

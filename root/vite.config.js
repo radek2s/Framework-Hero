@@ -10,6 +10,7 @@ export default defineConfig({
         name: "shell",
         remotes: {
             reactApp: "http://localhost:5001/assets/remoteEntry.js",
+            vueApp: "http://localhost:5002/assets/remoteEntry.js",
             angularApp: "http://localhost:4201/remoteEntry.js"
         },
         shared: ["react", "react-dom"]

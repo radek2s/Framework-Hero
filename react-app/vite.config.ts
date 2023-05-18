@@ -12,9 +12,9 @@ export default defineConfig({
       filename: "remoteEntry.js",
       remoteType: 'module',
       exposes: {
-        "./web-components": "./src/index",
+        "./ReactApp": "./src/bootstrap",
       },
-      // shared: ["react", "react-dom"],
+      shared: ["react", "react-dom"],
 
 
     })
@@ -24,6 +24,5 @@ export default defineConfig({
     target: "esnext",
     minify: true,
     cssCodeSplit: false,
-
   }
 })

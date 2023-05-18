@@ -18,8 +18,16 @@ hljs.registerLanguage('html', html);
 hljs.registerLanguage('css', css);
 // hljs.registerLanguage('vue', vue);
 
-createApp(App)
-    .use(store)
-    .use(router)
-    .use(hljsVuePlugin)
-    .mount("#app");
+
+
+
+// const mount = () => {
+    createApp(App)
+        .use(store)
+        .use(router)
+        .use(hljsVuePlugin)
+        .mount("#app");
+
+// }
+
+// export { mount }

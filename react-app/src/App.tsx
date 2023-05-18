@@ -3,7 +3,10 @@ import './App.css';
 import Navbar from './layout/Navbar';
 import Topbar from './layout/Topbar';
 import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 
+import "./index.css";
+import './i18n'
 
 
 export const App:React.FC = () => {

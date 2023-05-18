@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'react',
     component: WebComponentWrapper,
     data: {
-      remoteEntry: 'http://localhost:5001/assets/remoteEntry.js',
+      remoteEntry: 'http://localhost:5001/remoteEntry.js',
       remoteName: 'react',
       exposedModule: './web-components',
       elementName: 'react-element'

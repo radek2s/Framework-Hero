@@ -2,11 +2,13 @@
   "name": "react-app",
   "version": "0.1.0",
   "homepage": "./",
+  "main": "./src/ReactApp.tsx",
   "private": true,
   "dependencies": {
-    "@svgr/webpack": "8.0.1",    
+    "@svgr/webpack": "8.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
+    "copy-webpack-plugin": "^8.1.1",
     "eslint": "^8.40.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "i18next": "^22.4.15",
@@ -20,21 +22,26 @@
     "sass-loader": "^13.2.2"
   },
   "scripts": {
-    "start": "vite --port 5001 --strictPort",
-    "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --port 5001 --strictPort"
+    "start": "webpack serve --mode=development --devtool=source-map",
+    "build": "webpack --mode=production"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.1.7",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@types/react-highlight": "^0.12.5",
     "@types/react-router-dom": "^5.3.2",
-    "@originjs/vite-plugin-federation": "1.2.2",
-    "@vitejs/plugin-react": "^4.0.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-runtime": "^6.26.0",
+    "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
-    "vite": "^4.3.7"
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

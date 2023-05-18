@@ -1,3 +1,4 @@
+import React from "react";
 import Basic from "./views/Basic";
 import Home from "./views/Home";
 import ReactInit from "./views/Initialization";

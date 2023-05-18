@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'react',
     component: WebComponentWrapper,
     data: {
-      remoteEntry: 'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
+      remoteEntry: 'http://localhost:5001/assets/remoteEntry.js',
       remoteName: 'react',
       exposedModule: './web-components',
       elementName: 'react-element'

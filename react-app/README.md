@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+https://www.youtube.com/watch?v=t-nchkL9yIg&t=999s
+https://red-ocean-0fe4c4610.azurestaticapps.net/dashboard
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

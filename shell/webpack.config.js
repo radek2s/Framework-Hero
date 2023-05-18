@@ -26,7 +26,16 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
+      name: "Shell",
+      remotes: {
+        reactApp:"http://localhost:5001/assets/remoteEntry.js"
+      },
+      // shared: {
+      //   "react": {singleton: true},
+      //   "react-dom": {singleton: true}
+      // }
+      // file
+        // library: { type: "module" },
 
         // For remotes (please adjust)
         // name: "shell",
@@ -37,20 +46,35 @@ module.exports = {
         
         // For hosts (please adjust)
         // remotes: {
-        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+        //   reactApp: {
+        //     external: ,
+        //     format: 'var'
+        //   }
+        //     // "mfe1": "http://localhost:3000/remoteEntry.js",
 
         // },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        shared: {
+          ...mf.shareAll({singleton: true, strictVersion: true, requiredVersion: 'auto'})
+        }
 
-          ...sharedMappings.getDescriptors()
-        })
+        // shared: share({
+        //   "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+        //   "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+        //   "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+        //   "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+
+        //   ...sharedMappings.getDescriptors()
+        // })
         
     }),
     sharedMappings.getPlugin()
   ],
+  devServer: {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
+  },
 };

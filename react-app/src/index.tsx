@@ -5,6 +5,8 @@
 // import React from 'react';
 // import ReactApplication from './ReactApplication';
 
+import { createRoot } from 'react-dom/client';
+
 
 
 // const container = document.getElementById('root')
@@ -14,14 +16,19 @@
 //     <ReactApplication/>
 //   </React.StrictMode>, container)
 
-import('./bootstrap').then(({mount}) => {
+import('./bootstrap').then(({FrameworkHeroReact}) => {
   const localRoot = document.getElementById('react-app-local');
-
-  mount({
-    mountPoint: localRoot!,
-    routingStrategy: 'browser'
-  })
+  const root = createRoot(localRoot!);
+  root.render(<FrameworkHeroReact/>)
 })
+//  .then(({mount}) => {
+//   const localRoot = document.getElementById('react-app-local');
+
+//   mount({
+//     mountPoint: localRoot!,
+//     routingStrategy: 'browser'
+//   })
+// })
 
 
 export {}

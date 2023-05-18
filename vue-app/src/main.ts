@@ -26,7 +26,7 @@ hljs.registerLanguage('css', css);
         .use(store)
         .use(router)
         .use(hljsVuePlugin)
-        .mount("#app");
+        .mount("#vue-app");
 
 // }
 

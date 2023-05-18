@@ -8,6 +8,7 @@ import Extend from "../views/Extend.vue";
 import DirectivesView from "../views/DirectivesView.vue";
 import StoreView from "../views/StoreView.vue";
 import Lifecycle from "../views/Lifecycle.vue";
+import Empty from '../components/Empty.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -54,6 +55,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/lifecycle-component",
     name: "LifecycleComponent",
     component: Lifecycle,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    component: Empty
   }
 
 ];

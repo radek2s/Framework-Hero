@@ -1,1 +1,0 @@
-import{j as a}from"./jsx-runtime-2576e2e0.js";import{r as m}from"./__federation_shared_react-dom.js";var t,o=m;t=o.createRoot,o.hydrateRoot;import("./__federation_expose_ReactApp-bf227caa.js").then(({FrameworkHeroReact:r})=>{const e=document.getElementById("react-app-local");t(e).render(a.jsx(r,{}))});

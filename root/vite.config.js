@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import federation from "@originjs/vite-plugin-federation";
 
 // https://vitejs.dev/config/
-const MFBucket = import.meta.env.VITE_BUCKET || "https://radek2s.github.io/Framework-Hero"
+const MFBucket = process.env.VITE_BUCKET || "https://radek2s.github.io/Framework-Hero"
 export default defineConfig({
   plugins: [
     react(),

@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_BUCKET: https://radek2s.github.io/Framework-Hero
-      BASE_URL: Framework-Hero
+      VITE_BASE_URL: Framework-Hero
     steps:
       - uses: actions/checkout@v3
       - name: Cache node modules

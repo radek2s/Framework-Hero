@@ -1,0 +1,43 @@
+name: Deploy latest React changes to GitHub Pages
+
+on: 
+  push:
+    tags:
+      - 'react-v*.*.*'
+
+permissions:
+  contents: read
+  pages: write
+  deployments: write
+  id-token: write
+
+jobs:
+  buildR:
+    name: Build React
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./react-app
+      - name: Build
+        run: npm run build
+        working-directory: ./react-app
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          token: ${{ github.token }}
+          branch: gh-pages 
+          folder: react-app/dist
+          target-folder: ./docs/react

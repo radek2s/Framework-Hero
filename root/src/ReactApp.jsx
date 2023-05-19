@@ -1,18 +1,10 @@
 
 import React, { useEffect, useRef } from "react";
 import { FrameworkHeroReact } from "reactApp/ReactApp";
-// import { app1RoutingPrefix } from "../routing/constants";
-// import { useLocation, useNavigate } from "react-router-dom";
 
-const app1Basename = `/react`;
 
 export const ReactApp = () => {
     const rootRef = useRef(null)
-    useEffect(() => {
-        // const root = document.getElementById("root")
-        // console.log(rootRef.current)
-        // mount(rootRef.current)
-    }, [])
     return (<div ref={rootRef}>
         <FrameworkHeroReact/>
     </div>)

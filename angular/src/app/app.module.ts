@@ -70,11 +70,3 @@ const routes: Routes = [
 
 
 export class AppModule {}
-// export class AppModule implements DoBootstrap {
-//   constructor(private injector: Injector) {}
-
-//   ngDoBootstrap() {
-//     const ce = createCustomElement(AppComponent, {injector: this.injector});
-//     customElements.define('angular-app', ce);
-//   }
-// }

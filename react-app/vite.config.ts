@@ -8,15 +8,12 @@ export default defineConfig({
     react(),
     federation({
       name: "react-app",
-      // for
       filename: "remoteEntry.js",
       remoteType: 'module',
       exposes: {
         "./ReactApp": "./src/bootstrap",
       },
       shared: ["react", "react-dom"],
-
-
     })
   ],
   build: {

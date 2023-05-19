@@ -1,1 +1,0 @@
-import{i as a,_ as r,j as e}from"./index-b67c2a95.js";const o=await a("react"),{useEffect:i,useRef:c}=o,s=await r("reactApp","./ReactApp");let{FrameworkHeroReact:p}=s;const f=()=>{const t=c(null);return e.jsx("div",{ref:t,children:e.jsx(p,{})})};export{f as ReactApp,f as default};

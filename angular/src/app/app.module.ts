@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
@@ -16,6 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjectComponent } from './pages/project-initialization/project.component';
 import { StoreComponent } from './pages/component-store/store.component';
 import { SharedModule } from './shared';
+import { createCustomElement } from '@angular/elements';
 
 
 const routes: Routes = [
@@ -66,4 +67,6 @@ const routes: Routes = [
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+export class AppModule {}

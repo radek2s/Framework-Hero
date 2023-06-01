@@ -1,43 +1,12 @@
 <div>
-    <h1>Angular in a nutshell</h1>
-    <p>
-        Angular is a TypeScript-based JavaScript framework developed by Google for building client-side web applications.
-        It was released in 2010 and is the oldest among the presented ones.
-        On May 2016 was released a new version of Angular, the Angular 2 that
-        was completly rewrite from the initial version that was called AngularJS.
-        Now when we say Angular, we mean Angular version 2 and above. The latest 
-        version of Angular for today is version 12. 
-    </p>
+    <h1>{{ 'page.home.title' | translate }}</h1>
     
+    <p>{{ 'page.home.p1' | translate }}</p>
 
+    <p>{{ 'page.home.p2' | translate }}</p>
 
-    <p>
-        Angular components are a way to build reusable, encapsulated, and composable elements of
-        a web application. Components generally gets an input, and changes behavior depending on that changes.
-        Internal methods are used to change the state of the component that can be observed for example 
-        as a change in the DOM. Components are referred to as directives (markers on DOM elements).
-        Complex syntax and strict programming pattern make that framework difficult to start with.
-        Angular may be easier to understand for someone who has working on the Backend becouse its
-        thinking model is similar to creating a backend application. Every application is based on the
-        MVC (Model-View-Controller) pattern. Each component has separated UI part from the logic part.
-        Model component stores data and corresponding logic. Controller interprets a user actions and works between
-        View and Model. View component is responsible for displaying data and interacting with User.
-        There are also many advanced patterns like "services" and OOP patterns like "interfaces" or "inheritance". 
-        That strict guidelines make that framework easier to maintain in huge projects where many developers has to cooperate
-        with while building the app. It's great choice for creating 
-        highly-interactive web-applications.
-    </p>
+    <p>{{ 'page.home.p3' | translate }}</p>
 
-    <p>
-        Angular itself contain every basic functionality that is needed to build a web application like: CLI, routing, HTTP requests and even E2E testing suite.
-        You do not have to install anything, just initialize the Angular project and start coding. Using integrated Command Line Interface (Angular CLI) creation
-        of components is a piece of cake. Just run the command "<code>ng generate component component-name</code>" and you are done.
-        Everything is well documented and you can find more information on the official website.
-    </p>
-
-    <p>
-        Angular has related UI Library called "Angular Material" that can be used to build 
-        a better looking and more interactive web application using prepared components. Becouse that 
-        library is developed by Google it's up-to-date with latest versions of Angular.
-    </p>
+    <p>{{ 'page.home.p4' | translate }}</p>
+    
 </div>

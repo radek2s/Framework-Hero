@@ -17,6 +17,9 @@ import { ProjectComponent } from './pages/project-initialization/project.compone
 import { StoreComponent } from './pages/component-store/store.component';
 import { SharedModule } from './shared';
 import { createCustomElement } from '@angular/elements';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 const routes: Routes = [
@@ -33,6 +36,14 @@ const routes: Routes = [
 
 ]
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http)
+}
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +59,14 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     CoreModule,
     SharedModule,
     RouterModule.forRoot(routes),

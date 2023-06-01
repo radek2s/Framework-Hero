@@ -11,9 +11,9 @@ export default defineConfig({
       filename: "remoteEntry.js",
       remoteType: 'module',
       exposes: {
-        "./ReactApp": "./src/bootstrap",
+        "./ReactApp": "./src/bootstrapNew",
       },
-      shared: ["react", "react-dom"],
+      // shared: ["react", "react-dom"],
     })
   ],
   build: {

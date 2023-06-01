@@ -5,10 +5,12 @@ export const Root = () => {
     const navigateTo = (path) => {
         const {
             protocol,
+            pathname,
             host
         } = window.location
+        const domain = pathname === "/" ? "" : pathname.slice(1)
         console.log({protocol, host})
-        window.location = `${protocol}//${host}/#/${path}`
+        window.location = `${protocol}//${host}/${domain}#/${path}`
     }
     return (<div className="shell-navbar">
         <ul>
@@ -16,7 +18,9 @@ export const Root = () => {
             <li onClick={() => navigateTo("react")}>React</li>
             <li onClick={() => navigateTo("vue")}>Vue</li>
         </ul>
+        <div>
             <Outlet/>
+        </div>
         </div>)
 
 }

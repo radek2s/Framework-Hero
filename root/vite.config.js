@@ -10,12 +10,17 @@ export default defineConfig({
     federation({
         name: "shell",
         remotes: {
+            // reactApp: `http://localhost:5001/assets/remoteEntry.js`, //http://localhost:5001/assets/remoteEntry.js
             reactApp: `${MFBucket}/react/assets/remoteEntry.js`, //http://localhost:5001/assets/remoteEntry.js
             vueApp: `${MFBucket}/vue/assets/remoteEntry.js`, //5002
             angularApp: `${MFBucket}/angular/remoteEntry.js` //4201
         },
         shared: ["react", "react-dom"]
   })],
+  base: "",
+  server: {
+    cors: false
+  },
   build: {
     modulePreload: false,
     target: "esnext",

@@ -22,21 +22,17 @@ export const routes = [{
             path: "/angular/*",
             element: <AngularAppModule/>
         }, 
-        {
-            path: "/vue/*",
-            element: <VueAppModule/>,
-            errorElement: <div></div>
-        },
         // {
         //     path: "/vue/*",
-        //     element: <Suspense fallback="Loading React Application..."><VueAppLazy/></Suspense>,
+        //     element: <VueAppModule/>,
         //     errorElement: <div></div>
-        // }
+        // },
+        {
+            path: "/vue/*",
+            element: <Suspense fallback="Loading React Application..."><VueAppLazy/></Suspense>,
+            errorElement: <div></div>
+        }
 
     ]
 },
-// {
-//     path: "/react",
-//     element: <ReactAppModule/>
-// }, 
 ]

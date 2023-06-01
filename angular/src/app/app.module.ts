@@ -20,6 +20,7 @@ import { createCustomElement } from '@angular/elements';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from 'src/environments/environment';
 
 
 const routes: Routes = [
@@ -40,8 +41,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
 
+const assetUrl = environment.production 
+  ? "https://raw.githubusercontent.com/radek2s/Framework-Hero/gh-pages/docs/angular/assets/i18n/" 
+  : "./assets/i18n/"
+  
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, assetUrl, '.json');
 }
 
 @NgModule({

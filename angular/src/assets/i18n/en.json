@@ -6,6 +6,25 @@
             "p2": "Angular components are a way to build reusable, encapsulated, and composable elements of a web application. Components generally gets an input, and changes behavior depending on that changes. Internal methods are used to change the state of the component that can be observed for example as a change in the DOM. Components are referred to as directives (markers on DOM elements). Complex syntax and strict programming pattern make that framework difficult to start with. Angular may be easier to understand for someone who has working on the Backend becouse its thinking model is similar to creating a backend application. Every application is based on the MVC (Model-View-Controller) pattern. Each component has separated UI part from the logic part. Model component stores data and corresponding logic. Controller interprets a user actions and works between View and Model. View component is responsible for displaying data and interacting with User. There are also many advanced patterns like 'services' and OOP patterns like 'interfaces' or 'inheritance'. That strict guidelines make that framework easier to maintain in huge projects where many developers has to cooperate with while building the app. It's great choice for creating  highly-interactive web-applications.",
             "p3": "Angular itself contain every basic functionality that is needed to build a web application like: CLI, routing, HTTP requests and even E2E testing suite. You do not have to install anything, just initialize the Angular project and start coding. Using integrated Command Line Interface (Angular CLI) creation of components is a piece of cake. Just run the command `<code>ng generate component component-name</code>` and you are done. Everything is well documented and you can find more information on the official website.",
             "p4": "Angular has related UI Library called 'Angular Material' that can be used to build a better looking and more interactive web application using prepared components. Becouse that library is developed by Google it's up-to-date with latest versions of Angular."
+        },
+        "initialization": {
+            "title": "Project initialization",
+            "p1": "Angular provide base tool set for bootstrapping web application with just one command. Using Angualr CLI you will be able to create components, services and other related elements of ecosystem. Code is by default compiled using AOT (Ahead of Time) compiler that reduce the delay between change in code and rendering the page in user browser. Ivy rendering engine is used by default to compile components since Angular version 9.",
+            "p2": "For advanced users there are also place for customization of build process. Since Angular version 14 you can use external building tools like Vite to compile code. Instead of using 'karma-jasmine' testing tool you can change to 'Jest' or other testing framework. Angular provide also multi-project builds so you can easily prepare various configurations for your software. It is a great tool for working with huge and complex projects",
+            "installation": {
+                "title": "Angular installation",
+                "p1": "That tool require installed Node.js enviroment in the host Operating System. When it is installed, you can run the command:",
+                "p2": "Now the package manager will install the Angular CLI tool globally. That will give you access to ng executable that can be used to run the Angular CLI."
+            },
+            "project": {
+                "title": "Project creation",
+                "p1": "To initialize the project you can use the command:",
+                "p2": "All the files will be generated in the directory indicated as a project name. The basic workspace folder will contain the basic skeleton of the project."
+            },
+            "serve": {
+                "title": "Running the application",
+                "p1": "Finally when we have project created we can run the development server to instant prototyping the application. It will run AoT (Ahead of Time) compilation and watch for changes in the source files."
+            }
         }
     }
 }

@@ -1,40 +1,19 @@
 <div>
-    <h1>Project initialization</h1>
-    <p>
-        To start a new project angular has prepared a tools that can helps you with 
-        the initial configuration. The Angular CLI can be used to initialize, develop
-        and maintain your project.
-    </p>
+    <h1>{{ 'page.initialization.title' | translate }}</h1>
+    <p>{{ 'page.initialization.p1' | translate }}</p>
+    <p>{{ 'page.initialization.p2' | translate }}</p>
 
-    <h2>Installing the Angular</h2>
-    <p>
-        That tool require installed Node.js enviroment in the host Operating System. 
-        When it is installed, you can run the command:
-    </p>
+    <h2>{{ 'page.initialization.installation.title' | translate }}</h2>
+    <p>{{ 'page.initialization.installation.p1' | translate }}</p>
     <code>npm install -g @angular/cli</code> 
+    <p>{{ 'page.initialization.installation.p2' | translate }}</p>
 
-    <p>
-        Now the package manager will install the Angular CLI tool globally. That will 
-        give you access to <code>ng</code> executable that can be used to run the Angular CLI.
-    </p>
-    <h2>Project generation</h2>
-    <p>
-        To initialize the project you can use the command:
-    </p>
+    <h2>{{ 'page.initialization.project.title' | translate }}</h2>
+    <p>{{ 'page.initialization.project.p1' | translate }}</p>
     <code>ng new framework-hero</code> 
-    <p>
-        All the files will be generated in the directory indicated as a project name.
-        The basic workspace folder will contain the basic skeleton of the project.
-    </p>
-    <h2>Running the application</h2>
-
-    <p>
-        Finally when we have project created we can run the development server to 
-        instant prototyping the application. It will run AoT (Ahead of Time) compilation and
-        watch for changes in the source files.
-    </p>
-
+    <p>{{ 'page.initialization.project.p2' | translate }}</p>
+    
+    <h2>{{ 'page.initialization.serve.title' | translate }}</h2>
+    <p>{{ 'page.initialization.serve.p1' | translate }}</p>
     <code>cd framework-hero<br>ng serve --open</code> 
-
-
 </div>

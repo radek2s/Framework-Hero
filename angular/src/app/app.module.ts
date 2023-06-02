@@ -16,11 +16,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProjectComponent } from './pages/project-initialization/project.component';
 import { StoreComponent } from './pages/component-store/store.component';
 import { SharedModule } from './shared';
-import { createCustomElement } from '@angular/elements';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { environment } from 'src/environments/environment';
 
 
 const routes: Routes = [
@@ -37,14 +35,11 @@ const routes: Routes = [
 
 ]
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http)
-}
 
-const assetUrl = environment.production 
+const assetUrl = true 
   ? "https://raw.githubusercontent.com/radek2s/Framework-Hero/gh-pages/docs/angular/assets/i18n/" 
   : "./assets/i18n/"
-  
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, assetUrl, '.json');
 }

@@ -48,6 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
+    ProjectComponent,
     BasicComponent,
     PropsComponent,
     LifecycleComponent,

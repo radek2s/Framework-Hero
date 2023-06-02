@@ -6,6 +6,52 @@
             "p2": "Angular components are a way to build reusable, encapsulated, and composable elements of a web application. Components generally gets an input, and changes behavior depending on that changes. Internal methods are used to change the state of the component that can be observed for example as a change in the DOM. Components are referred to as directives (markers on DOM elements). Complex syntax and strict programming pattern make that framework difficult to start with. Angular may be easier to understand for someone who has working on the Backend becouse its thinking model is similar to creating a backend application. Every application is based on the MVC (Model-View-Controller) pattern. Each component has separated UI part from the logic part. Model component stores data and corresponding logic. Controller interprets a user actions and works between View and Model. View component is responsible for displaying data and interacting with User. There are also many advanced patterns like 'services' and OOP patterns like 'interfaces' or 'inheritance'. That strict guidelines make that framework easier to maintain in huge projects where many developers has to cooperate with while building the app. It's great choice for creating  highly-interactive web-applications.",
             "p3": "Angular itself contain every basic functionality that is needed to build a web application like: CLI, routing, HTTP requests and even E2E testing suite. You do not have to install anything, just initialize the Angular project and start coding. Using integrated Command Line Interface (Angular CLI) creation of components is a piece of cake. Just run the command `<code>ng generate component component-name</code>` and you are done. Everything is well documented and you can find more information on the official website.",
             "p4": "Angular has related UI Library called 'Angular Material' that can be used to build a better looking and more interactive web application using prepared components. Becouse that library is developed by Google it's up-to-date with latest versions of Angular."
+        },
+        "initialization": {
+            "title": "Project initialization",
+            "p1": "Angular provide base tool set for bootstrapping web application with just one command. Using Angualr CLI you will be able to create components, services and other related elements of ecosystem. Code is by default compiled using AOT (Ahead of Time) compiler that reduce the delay between change in code and rendering the page in user browser. Ivy rendering engine is used by default to compile components since Angular version 9.",
+            "p2": "For advanced users there are also place for customization of build process. Since Angular version 14 you can use external building tools like Vite to compile code. Instead of using 'karma-jasmine' testing tool you can change to 'Jest' or other testing framework. Angular provide also multi-project builds so you can easily prepare various configurations for your software. It is a great tool for working with huge and complex projects",
+            "installation": {
+                "title": "Angular installation",
+                "p1": "That tool require installed Node.js enviroment in the host Operating System. When it is installed, you can run the command:",
+                "p2": "Now the package manager will install the Angular CLI tool globally. That will give you access to ng executable that can be used to run the Angular CLI."
+            },
+            "project": {
+                "title": "Project creation",
+                "p1": "To initialize the project you can use the command:",
+                "p2": "All the files will be generated in the directory indicated as a project name. The basic workspace folder will contain the basic skeleton of the project."
+            },
+            "serve": {
+                "title": "Running the application",
+                "p1": "Finally when we have project created we can run the development server to instant prototyping the application. It will run AoT (Ahead of Time) compilation and watch for changes in the source files."
+            }
+        },
+        "components": {
+            "title": "Component Introduction",
+            "p1": "Angular is a component-based framework that is well designed to build scalable web applications. The smallest block from which application is built is the component. It is a TypeScript class with @Component() decorator and dedicated HTML template and styles. This HTML templates instructs that framework how to render the component and CSS stylesheet defines the appearance of the elements within component.",
+            "p2": "Components may vary in layout and functionality. There are many 'good-practices' how to project components for your application. One of them is a 'Component-Container' pattern also known as 'Smart and Dumb Components' in Angular environment. Concept is simple - 'Container' (or a 'Smart' component) is responsible for every logic and data flow. 'Dumb' component (or 'Component' also called 'Presentation Component') is responsible for rendering the data and layout. That pattern will be explained in further reading. But as you can see the components can be very simple HTML template but it also can be responsible for very complex logic that can fetch data from server and process it. But starting from starch let me introduce you into basic Angular component.",            
+            "p3": "To create a component, you need to create a *.component.ts file where that decorator is attached to specific *Component class. Code example is provided below as single.component.ts in section 'Single File Component'. Each component could have a set of properties and methods like classic TypeScript class. Component are strongly encapsulated and without specific properties the data sharing between components is not possible. In further reading it will be explained how to do that.",
+            "sfc": {
+                "title": "Single File Component",
+                "p1": "Single file components are rarely used in Angular but it is possible to use them. This concept assumes that you define your component with all logic template and styles in a single file and then you can import it in other files. This is the minimal approach.",
+                "p2": "decorator require at least two properties to properly define a component.",
+                "selector": "decorator require at least two properties to properly define a component.",
+                "template": "that defines the HTML template or file location of the HTML template that will be rendered with that component.",
+                "styles": "(Optional) - that defines the CSS definitions or stylesheet file location."
+            },
+            "basic": {
+                "title": "Basic Angular Component",
+                "p1": "More often you will see the component definition with separated *.html and *.css files from the main *.component.ts file. This is the recommended approach that helps you to organize your code and makes it easier to maintain. Also the text editor will be able highlight the code and give you additional linting and code completion. But the major advantage is that you starting to using the MVC design pattern where the V (View) is the component HTML definition and C (Controller) is the component class. But where is the M (Model)? The Model could be in external files that define additional classes and interfaces."
+            },
+            "usage": {
+                "title": "Component usage",
+                "p1": "When the component class definition is done, now it's time to use it. So to do that in HTML template of other component you need to add markup that you defined in 'selector' section in previous example. And that's it! Each Angular project has root component that by default is named app.component.ts. So in related app.component.html file you can add the following code to see your new component:",
+                "p2": "Make sure that your component has been added to valid module. By default for Angular the root module is defined in app.module.ts file. Users can also define their own modules. That feature helps to easily maintain the project structure."
+            },
+            "root": {
+                "title": "Root Component",
+                "p1": "Each framework must have its own beginning where everything is initialized. In Angular project you can find the index.html file and if you open that file you will see that inside the body tag there is a 'app-root' selector. This is the reference to the root component that by default is called app.component.ts. It is not strict definition and you you want to change it, you can do it."
+            }
         }
     }
 }
